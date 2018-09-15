@@ -54,5 +54,8 @@
   "bugs": {
     "url": "https://github.com/Rubyeyes/UELimoGroup/issues"
   },
-  "homepage": "https://github.com/Rubyeyes/UELimoGroup#readme"
+  "homepage": "https://github.com/Rubyeyes/UELimoGroup#readme",
+  "devDependencies": {
+    "body-parser": "^1.18.3"
+  }
 }
