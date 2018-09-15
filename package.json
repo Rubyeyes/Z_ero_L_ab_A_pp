@@ -21,7 +21,6 @@
     "ejs": "2.3.3",
     "express": "4.13.1",
     "express-jwt": "3.3.0",
-    "google-translate": "^1.0.7",
     "jsonwebtoken": "5.7.0",
     "mongodb": "^2.1.18",
     "mongoose": "4.4.12",
