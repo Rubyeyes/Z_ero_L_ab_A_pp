@@ -1,0 +1,130 @@
+
+.articles-container {
+	position: inherit;
+	margin-top: 20px;
+	margin-bottom: 60px;
+	border-left: solid 1px #ddd;
+	min-height: 590px;
+	background-color: white;
+}
+
+.panel-articles:hover {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	cursor: pointer;
+}
+
+.panel-articles .panel-heading {
+	font-size: 20px;
+	background-color: transparent;
+	min-height: 77px;
+}
+
+.panel-articles .panel-footer {
+	font-size: 12px;
+	background-color: transparent;
+	min-height: 55px;
+}
+
+.articles-catetories span {
+	font-size: 20px;
+    font-weight: bold;
+}
+
+
+/*sidebar*/  
+.articles-sidebar-container {
+	margin-top: 20px;
+}
+.panel-articles-sidebar {
+	width: 100%;
+	padding-left: 10%;
+	border: transparent;
+	box-shadow: 0 0px 0px rgba(0,0,0,.05);
+}
+
+.panel-articles-sidebar ul.articles-catetories {
+	list-style-type: none;
+	padding: 0px;
+	text-align: left;
+}
+
+.panel-articles-sidebar ul.articles-catetories li {
+	margin: 5px 0 5px 0;
+	padding-left: 5px;
+}
+
+.panel-articles-sidebar ul.articles-catetories li a{
+	text-decoration: none;
+	color: black;
+}
+
+.active_articles_sidebar {
+    border-left: solid 3px #99d7ce;
+}
+
+.panel-articles-sidebar ul.articles-catetories li:hover,
+.panel-articles-sidebar ul.articles-catetories li:active,
+.panel-articles-sidebar ul.articles-catetories li:focus {	
+    border-left: solid 3px #99d7ce;
+}
+
+ul.articles-subcatetories {
+	color: black;
+    list-style-type: none;
+	padding-left: 10px;
+}
+
+ul.articles-subcatetories li {
+	font-size: 14px;
+}
+
+.show_ul {
+	display: block;
+}
+
+.back-to-top {
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	z-index: 1000;
+	max-width: 55px;
+}
+
+.btn-scroll-up {
+	width: 100%;
+	background-color: transparent;
+    padding: 5px;
+}
+
+.btn-scroll-up img {
+	width: 100%
+}
+
+.btn-scroll-up:active:focus, .btn-scroll-up:focus {
+    outline: 0px auto -webkit-focus-ring-color;
+    outline-offset: 0px;
+}
+
+.icon-blur-cover {
+	position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    background-color: rgba(255,255,255,0.6);
+    border-radius: 5px;
+}
+
+.icon-blur-cover:hover {
+    background-color: rgba(255,255,255,0.1);
+    cursor: pointer;
+} 
+
+@media screen and (max-width: 767px) {    
+	.articles-sidebar-container {
+		position: relative;
+	}
+	.panel-articles-sidebar {
+	    padding-left: 2%;
+	    border-bottom: solid 1px #ddd;
+	}
+}

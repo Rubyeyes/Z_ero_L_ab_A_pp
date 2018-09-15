@@ -1,0 +1,575 @@
+<div class="admin-dashboard-container">
+	<h1 class="title">ZERO实验室管理员面板</h1>
+	<div class="row-admin">
+		<div class="col-sm-12 col-md-6">
+			<div class="webBanners-section">
+				<div class="title-webBanner">
+					<h4>网页Banner目录</h4>
+					<div class="button-group">
+						<button ng-click="showNewWebBannerForm()" ng-model="webBannerFormOn" ng-hide="webBannerFormOn"><span><img src="../../assets/image/icon/add.png" alt=""></span></button>
+					</div>
+				</div>
+				<form class="new-webBanner-form" name="newWebBannerForm" novalidate class="new-form" ng-show="webBannerFormOn">
+					<div class="form-row title-form">
+						<label >添加新网页Banner</label>
+					</div>
+					<div class="form-row">
+						<label>序号: </label> <input type="number" name="newWebBannerOrder" ng-model="newWebBanner.order" />
+					</div>
+				    <div class="form-row">
+					    <label>名称: </label><input type="text" name="newWebBannerTitle" ng-model="newWebBanner.title" placeholder="（必须）" required /><br>
+				    </div>
+				    <div class="form-row">	
+				    	<label for=""></label><span class="warning" ng-show="newWebBannerForm.newWebBannerTitle.$touched && newWebBannerForm.newWebBannerTitle.$invalid">请填写标题</span>
+				    </div>
+				    <div class="form-row">
+					    <label>图片来源链接: </label><input type="text" name="newWebBannerImgUrl" ng-model="newWebBanner.imgUrl" placeholder="（必须）" required /><br>
+				    </div>
+				    <div class="form-row">	
+				    	<label for=""></label><span class="warning" ng-show="newWebBannerForm.newWebBannerImgUrl.$touched && newWebBannerForm.newWebBannerImgUrl.$invalid">请填写链接</span>
+				    </div>
+				    <div class="form-row">
+					    <label>图片超链接: </label><input type="text" name="newWebBannerImgHref" ng-model="newWebBanner.imgHref" /><br>
+				    </div>
+					<div class="button">
+					    <input class="button-cancel" type="button" ng-click="cancelNewWebBannerForm()" value="取消" />
+					    <input type="submit" ng-click="addNewWebBanner()" value="确认" />
+					</div>
+				</form>
+				<ul class="list-webBanner">
+					<li ng-repeat="webBanner in webBanners | orderBy: 'order'" 
+						ng-init="webBannerIndex = $index" >
+						<div class="row">	
+							<div class="label-webBanner">	
+								<label >{{webBanner.order}}. {{webBanner.title}}</label>
+							</div>
+							<div class="button-group">
+								<button ng-hide="editingWebBannerId == webBanner._id  || addingWebBannerId == webBanner._id" ng-click="showWebBannerEditForm(webBanner)" ><span><img src="../../assets/image/icon/edit.png" alt=""></span></button>	
+								<button class="button-delete" ng-hide="editingWebBannerId == webBanner._id  || addingWebBannerId == webBanner._id" ng-click="removeWebBanner(webBanner, webBanner._id)"><span><img src="../../assets/image/icon/delete.png" alt=""></span></button>
+							</div>
+							<div class="label-webBanner-url">	
+								<label>Url: {{webBanner.imgUrl}}</label>
+							</div>
+							<form novalidate class="update-webBanner-form" ng-show="editingWebBannerId === webBanner._id">
+								<div class="form-row title-form">
+									<label >修改Banner</label>
+								</div>
+								<div class="form-row">
+									<label>序号: </label><input type="number" ng-model="editingWebBanner.neworder" />
+								</div>
+								<div class="form-row">
+									<label>名称: </label><input type="text" ng-model="editingWebBanner.title" />
+								</div>
+								<div class="form-row">
+									<label>图片来源链接: </label><input type="text" ng-model="editingWebBanner.imgUrl" />
+								</div>
+								<div class="form-row">
+									<label>图片超链接: </label><input type="text" ng-model="editingWebBanner.imgHref" />
+								</div>
+								<div class="button">
+								    <input class="button-cancel" type="button" ng-click="hideWebBannerEditForm()" value="取消" />
+								    <input type="submit" ng-click="updateWebBanner(webBanner)" value="确认" />
+								</div>
+							</form>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-6">
+			<div class="webSubBanners-section">
+				<div class="title-webSubBanner">
+					<h4>网页小Banner目录</h4>
+					<div class="button-group">
+						<button ng-click="showNewWebSubBannerForm()" ng-model="webSubBannerFormOn" ng-hide="webSubBannerFormOn"><span><img src="../../assets/image/icon/add.png" alt=""></span></button>
+					</div>
+				</div>
+				<form class="new-webSubBanner-form" name="newWebSubBannerForm" novalidate class="new-form" ng-show="webSubBannerFormOn">
+					<div class="form-row title-form">
+						<label >添加新网页小Banner</label>
+					</div>
+					<div class="form-row">
+						<label>序号: </label> <input type="number" name="newWebSubBannerOrder" ng-model="newWebSubBanner.order" />
+					</div>
+				    <div class="form-row">
+					    <label>名称: </label><input type="text" name="newWebSubBannerTitle" ng-model="newWebSubBanner.title" placeholder="（必须）" required /><br>
+				    </div>
+				    <div class="form-row">	
+				    	<label for=""></label><span class="warning" ng-show="newWebSubBannerForm.newWebSubBannerTitle.$touched && newWebSubBannerForm.newWebSubBannerTitle.$invalid">请填写标题</span>
+				    </div>
+				    <div class="form-row">
+					    <label>图片来源链接: </label><input type="text" name="newWebSubBannerImgUrl" ng-model="newWebSubBanner.imgUrl" placeholder="（必须）" required /><br>
+				    </div>
+				    <div class="form-row">	
+				    	<label for=""></label><span class="warning" ng-show="newWebSubBannerForm.newWebSubBannerImgUrl.$touched && newWebSubBannerForm.newWebSubBannerImgUrl.$invalid">请填写链接</span>
+				    </div>
+				    <div class="form-row">
+					    <label>图片超链接: </label><input type="text" name="newWebSubBannerImgHref" ng-model="newWebSubBanner.imgHref"/><br>
+				    </div>
+					<div class="button">
+					    <input class="button-cancel" type="button" ng-click="cancelNewWebSubBannerForm()" value="取消" />
+					    <input type="submit" ng-click="addNewWebSubBanner()" value="确认" />
+					</div>
+				</form>
+				<ul class="list-webSubBanner">
+					<li ng-repeat="webSubBanner in webSubBanners | orderBy: 'order'" 
+						ng-init="webSubBannerIndex = $index" >
+						<div class="row">	
+							<div class="label-webSubBanner">	
+								<label >{{webSubBanner.order}}. {{webSubBanner.title}}</label>
+							</div>
+							<div class="button-group">
+								<button ng-hide="editingWebSubBannerId == webSubBanner._id  || addingWebSubBannerId == webSubBanner._id" ng-click="showWebSubBannerEditForm(webSubBanner)" ><span><img src="../../assets/image/icon/edit.png" alt=""></span></button>	
+								<button class="button-delete" ng-hide="editingWebSubBannerId == webSubBanner._id  || addingWebSubBannerId == webSubBanner._id" ng-click="removeWebSubBanner(webSubBanner, webSubBanner._id)"><span><img src="../../assets/image/icon/delete.png" alt=""></span></button>
+							</div>
+							<div class="label-webSubBanner-url">	
+								<label>Url: {{webSubBanner.imgUrl}}</label>
+							</div>
+							<form novalidate class="update-webSubBanner-form" ng-show="editingWebSubBannerId === webSubBanner._id">
+								<div class="form-row title-form">
+									<label >修改Banner</label>
+								</div>
+								<div class="form-row">
+									<label>序号: </label><input type="number" ng-model="editingWebSubBanner.neworder" />
+								</div>
+								<div class="form-row">
+									<label>名称: </label><input type="text" ng-model="editingWebSubBanner.title" />
+								</div>
+								<div class="form-row">
+									<label>图片来源链接: </label><input type="text" ng-model="editingWebSubBanner.imgUrl" />
+								</div>
+								<div class="form-row">
+									<label>图片超链接: </label><input type="text" ng-model="editingWebSubBanner.imgHref" />
+								</div>
+								<div class="button">
+								    <input class="button-cancel" type="button" ng-click="hideWebSubBannerEditForm()" value="取消" />
+								    <input type="submit" ng-click="updateWebSubBanner(webSubBanner)" value="确认" />
+								</div>
+							</form>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="row-admin">	
+		<div class="col-sm-12 col-md-6">
+			<div class="miniProgramBanners-section">
+				<div class="title-miniProgramBanner">
+					<h4>小程序Banner目录</h4>
+					<div class="button-group">
+						<button ng-click="showNewMiniProgramBannerForm()" ng-model="miniProgramBannerFormOn" ng-hide="miniProgramBannerFormOn"><span><img src="../../assets/image/icon/add.png" alt=""></span></button>
+					</div>
+				</div>
+				<form class="new-miniProgramBanner-form" name="newMiniProgramBannerForm" novalidate class="new-form" ng-show="miniProgramBannerFormOn">
+					<div class="form-row title-form">
+						<label >添加新小程序Banner</label>
+					</div>
+					<div class="form-row">
+						<label>序号: </label> <input type="number" name="newMiniProgramBannerOrder" ng-model="newMiniProgramBanner.order" />
+					</div>
+				    <div class="form-row">
+					    <label>名称: </label><input type="text" name="newMiniProgramBannerTitle" ng-model="newMiniProgramBanner.title" placeholder="（必须）" required /><br>
+				    </div>
+				    <div class="form-row">	
+				    	<label for=""></label><span class="warning" ng-show="newMiniProgramBannerForm.newMiniProgramBannerTitle.$touched && newMiniProgramBannerForm.newMiniProgramBannerTitle.$invalid">请填写标题</span>
+				    </div>
+				    <div class="form-row">
+					    <label>图片来源链接: </label><input type="text" name="newMiniProgramBannerImgUrl" ng-model="newMiniProgramBanner.imgUrl" placeholder="（必须）" required /><br>
+				    </div>
+				    <div class="form-row">	
+				    	<label for=""></label><span class="warning" ng-show="newMiniProgramBannerForm.newMiniProgramBannerImgUrl.$touched && newMiniProgramBannerForm.newMiniProgramBannerImgUrl.$invalid">请填写链接</span>
+				    </div>
+				    <div class="form-row">
+					    <label>图片超链接: </label><input type="text" name="newMiniProgramBannerImgHref" ng-model="newMiniProgramBanner.imgHref"/><br>
+				    </div>
+					<div class="button">
+					    <input class="button-cancel" type="button" ng-click="cancelNewMiniProgramBannerForm()" value="取消" />
+					    <input type="submit" ng-click="addNewMiniProgramBanner()" value="确认" />
+					</div>
+				</form>
+				<ul class="list-miniProgramBanner">
+					<li ng-repeat="miniProgramBanner in miniProgramBanners | orderBy: 'order'" 
+						ng-init="miniProgramBannerIndex = $index" >
+						<div class="row">	
+							<div class="label-miniProgramBanner">	
+								<label >{{miniProgramBanner.order}}. {{miniProgramBanner.title}}</label>
+							</div>
+							<div class="button-group">
+								<button ng-hide="editingMiniProgramBannerId == miniProgramBanner._id  || addingMiniProgramBannerId == miniProgramBanner._id" ng-click="showMiniProgramBannerEditForm(miniProgramBanner)" ><span><img src="../../assets/image/icon/edit.png" alt=""></span></button>	
+								<button class="button-delete" ng-hide="editingMiniProgramBannerId == miniProgramBanner._id  || addingMiniProgramBannerId == miniProgramBanner._id" ng-click="removeMiniProgramBanner(miniProgramBanner, miniProgramBanner._id)"><span><img src="../../assets/image/icon/delete.png" alt=""></span></button>
+							</div>
+							<div class="label-miniProgramBanner-url">	
+								<label>Url: {{miniProgramBanner.imgUrl}}</label>
+							</div>
+							<form novalidate class="update-miniProgramBanner-form" ng-show="editingMiniProgramBannerId === miniProgramBanner._id">
+								<div class="form-row title-form">
+									<label >修改Banner</label>
+								</div>
+								<div class="form-row">
+									<label>序号: </label><input type="number" ng-model="editingMiniProgramBanner.neworder" />
+								</div>
+								<div class="form-row">
+									<label>名称: </label><input type="text" ng-model="editingMiniProgramBanner.title" />
+								</div>
+								<div class="form-row">
+									<label>图片来源链接: </label><input type="text" ng-model="editingMiniProgramBanner.imgUrl" />
+								</div>
+								<div class="form-row">
+									<label>图片超链接: </label><input type="text" ng-model="editingMiniProgramBanner.imgHref" />
+								</div>
+								<div class="button">
+								    <input class="button-cancel" type="button" ng-click="hideMiniProgramBannerEditForm()" value="取消" />
+								    <input type="submit" ng-click="updateMiniProgramBanner(miniProgramBanner)" value="确认" />
+								</div>
+							</form>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>	
+		<div class="col-sm-12 col-md-6">
+			<div class="miniProgramSubBanners-section">
+				<div class="title-miniProgramSubBanner">
+					<h4>小程序Banner目录</h4>
+					<div class="button-group">
+						<button ng-click="showNewMiniProgramSubBannerForm()" ng-model="miniProgramSubBannerFormOn" ng-hide="miniProgramSubBannerFormOn"><span><img src="../../assets/image/icon/add.png" alt=""></span></button>
+					</div>
+				</div>
+				<form class="new-miniProgramSubBanner-form" name="newMiniProgramSubBannerForm" novalidate class="new-form" ng-show="miniProgramSubBannerFormOn">
+					<div class="form-row title-form">
+						<label >添加新小程序Banner</label>
+					</div>
+					<div class="form-row">
+						<label>序号: </label> <input type="number" name="newMiniProgramSubBannerOrder" ng-model="newMiniProgramSubBanner.order" />
+					</div>
+				    <div class="form-row">
+					    <label>名称: </label><input type="text" name="newMiniProgramSubBannerTitle" ng-model="newMiniProgramSubBanner.title" placeholder="（必须）" required /><br>
+				    </div>
+				    <div class="form-row">	
+				    	<label for=""></label><span class="warning" ng-show="newMiniProgramSubBannerForm.newMiniProgramSubBannerTitle.$touched && newMiniProgramSubBannerForm.newMiniProgramSubBannerTitle.$invalid">请填写标题</span>
+				    </div>
+				    <div class="form-row">
+					    <label>图片来源链接: </label><input type="text" name="newMiniProgramSubBannerImgUrl" ng-model="newMiniProgramSubBanner.imgUrl" placeholder="（必须）" required /><br>
+				    </div>
+				    <div class="form-row">	
+				    	<label for=""></label><span class="warning" ng-show="newMiniProgramSubBannerForm.newMiniProgramSubBannerImgUrl.$touched && newMiniProgramSubBannerForm.newMiniProgramSubBannerImgUrl.$invalid">请填写链接</span>
+				    </div>
+				    <div class="form-row">
+					    <label>图片超链接: </label><input type="text" name="newMiniProgramSubBannerImgHref" ng-model="newMiniProgramSubBanner.imgHref"/><br>
+				    </div>
+					<div class="button">
+					    <input class="button-cancel" type="button" ng-click="cancelNewMiniProgramSubBannerForm()" value="取消" />
+					    <input type="submit" ng-click="addNewMiniProgramSubBanner()" value="确认" />
+					</div>
+				</form>
+				<ul class="list-miniProgramSubBanner">
+					<li ng-repeat="miniProgramSubBanner in miniProgramSubBanners | orderBy: 'order'" 
+						ng-init="miniProgramSubBannerIndex = $index" >
+						<div class="row">	
+							<div class="label-miniProgramSubBanner">	
+								<label >{{miniProgramSubBanner.order}}. {{miniProgramSubBanner.title}}</label>
+							</div>
+							<div class="button-group">
+								<button ng-hide="editingMiniProgramSubBannerId == miniProgramSubBanner._id  || addingMiniProgramSubBannerId == miniProgramSubBanner._id" ng-click="showMiniProgramSubBannerEditForm(miniProgramSubBanner)" ><span><img src="../../assets/image/icon/edit.png" alt=""></span></button>	
+								<button class="button-delete" ng-hide="editingMiniProgramSubBannerId == miniProgramSubBanner._id  || addingMiniProgramSubBannerId == miniProgramSubBanner._id" ng-click="removeMiniProgramSubBanner(miniProgramSubBanner, miniProgramSubBanner._id)"><span><img src="../../assets/image/icon/delete.png" alt=""></span></button>
+							</div>
+							<div class="label-miniProgramSubBanner-url">	
+								<label>Url: {{miniProgramSubBanner.imgUrl}}</label>
+							</div>
+							<form novalidate class="update-miniProgramSubBanner-form" ng-show="editingMiniProgramSubBannerId === miniProgramSubBanner._id">
+								<div class="form-row title-form">
+									<label >修改Banner</label>
+								</div>
+								<div class="form-row">
+									<label>序号: </label><input type="number" ng-model="editingMiniProgramSubBanner.neworder" />
+								</div>
+								<div class="form-row">
+									<label>名称: </label><input type="text" ng-model="editingMiniProgramSubBanner.title" />
+								</div>
+								<div class="form-row">
+									<label>图片来源链接: </label><input type="text" ng-model="editingMiniProgramSubBanner.imgUrl" />
+								</div>
+								<div class="form-row">
+									<label>图片超链接: </label><input type="text" ng-model="editingMiniProgramSubBanner.imgHref" />
+								</div>
+								<div class="button">
+								    <input class="button-cancel" type="button" ng-click="hideMiniProgramSubBannerEditForm()" value="取消" />
+								    <input type="submit" ng-click="updateMiniProgramSubBanner(miniProgramSubBanner)" value="确认" />
+								</div>
+							</form>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>	
+	</div>
+	
+	<div class="row-admin">
+		<div class="col-sm-12 col-md-6">
+			<div class="articles-section">
+				<div class="title-article-category">
+					<h4>文章目录</h4>
+					<div class="button-group">
+						<button ng-click="showNewArticleCategoryForm()" ng-model="articleCategoryFormOn" ng-hide="articleCategoryFormOn"><span><img src="../../assets/image/icon/add.png" alt=""></span></button>
+					</div>
+				</div>
+				<form class="new-article-category-form" name="newArticleCategoryForm" novalidate class="new-category-form" ng-show="articleCategoryFormOn">
+					<div class="form-row title-form">
+						<label >添加新类别</label>
+					</div>
+					<div class="form-row">
+						<label>序号: </label> <input type="number" name="newArticleCategoryOrder" ng-model="newArticleCategory.order" />
+					</div>
+				    <div class="form-row">
+					    <label>类别名称: </label><input type="text" name="newArticleCategoryTitle" ng-model="newArticleCategory.title" placeholder="（必须）" required /><br>
+				    </div>
+				    <div class="form-row">	
+				    	<label for=""></label><span class="warning" ng-show="newArticleCategoryForm.newArticleCategoryTitle.$touched && newArticleCategoryForm.newArticleCategoryTitle.$invalid">请填写标题</span>
+				    </div>
+					<div class="button">
+					    <input class="button-cancel" type="button" ng-click="cancelNewArticleCategoryForm()" value="取消" />
+					    <input type="submit" ng-click="addNewArticleCategory()" value="确认" />
+					</div>
+				</form>
+				<ul class="list-article-category">
+					<li ng-repeat="articleCategory in articleCategories | orderBy: 'order'" 
+						ng-init="articleCategoryIndex = $index" >
+						<div class="row">	
+							<div class="label-article-category">	
+								<label >{{articleCategory.order}}. {{articleCategory.title}}</label>
+							</div>
+							<div class="button-group">			
+								<button ng-hide="editingArticleCategoryId == articleCategory._id || addingArticleCategoryId == articleCategory._id" ng-click="showNewArticleFrom(articleCategory)"><span><img src="../../assets/image/icon/add.png" alt=""></span></button>
+								<button ng-hide="editingArticleCategoryId == articleCategory._id  || addingArticleCategoryId == articleCategory._id" ng-click="showArticleCategoryEditForm(articleCategory)" ><span><img src="../../assets/image/icon/edit.png" alt=""></span></button>	
+								<button class="button-delete" ng-hide="editingArticleCategoryId == articleCategory._id  || addingArticleCategoryId == articleCategory._id" ng-click="removeArticleCategory(articleCategory, articleCategory._id)"><span><img src="../../assets/image/icon/delete.png" alt=""></span></button>
+							</div>
+							<form novalidate class="update-article-category-form" ng-show="editingArticleCategoryId === articleCategory._id">
+								<div class="form-row title-form">
+									<label >修改类别</label>
+								</div>
+								<div class="form-row">
+									<label>序号: </label><input type="number" ng-model="editingArticleCategory.neworder" />
+								</div>
+								<div class="form-row">
+									<label>名称: </label><input type="text" ng-model="editingArticleCategory.title" />
+								</div>
+								<div class="button">
+								    <input class="button-cancel" type="button" ng-click="hideArticleCategoryEditForm()" value="取消" />
+								    <input type="submit" ng-click="updateArticleCategory(articleCategory)" value="确认" />
+								</div>
+							</form>
+						</div>
+						
+						<form name="newArticleFrom" novalidate class="new-article-form" ng-show="addingArticleCategoryId == articleCategory._id">
+							<div class="form-row title-form">
+								<label >添加新文章到{{articleCategory.title}}</label>
+							</div>
+							<div class="form-row">
+								<label>序号: </label><input type="number" name="newArticleOrder" ng-model="newArticle.order" />
+							</div>
+							<div class="form-row">
+								<label>标题: </label><input type="text" name="newArticleTitle" ng-model="newArticle.title" placeholder="（必须）" required />
+							</div>
+							<div class="form-row">
+								<label></label><span class="warning" ng-show="newArticleFrom.newArticleTitle.$touched && newArticleFrom.newArticleTitle.$invalid">请填写标题</span>
+							</div>
+							<div class="form-row">
+								<label>副标题: </label><input type="text" ng-model="newArticle.subtitle" /></label>
+							</div>
+							<div class="form-row">
+								<label>文章链接: </label><input type="text" name="newArticleUrl" ng-model="newArticle.articleUrl" placeholder="（必须）" required type='url'/>
+							</div>
+							<div class="form-row">
+								<label></label><span class="warning"  ng-show="newArticleFrom.newArticleUrl.$touched && newArticleFrom.newArticleUrl.$invalid">请填写文章链接</span>
+							</div>
+							<div class="form-row">
+								<label>缩略图链接: </label><input type="text" ng-model="newArticle.thumbnailUrl"  />
+							</div>
+						    
+							<div class="button">
+							    <input class="button-cancel" type="button" ng-click="hideArticleForm()" value="取消" />
+							    <input type="submit" ng-click="addNewArticle(articleCategory)" value="确认" />	
+							</div>
+						</form>
+						<ul class="list-article" >
+							<li ng-repeat="article in articleCategory.articles | orderBy: 'order'" 
+								ng-init="articleIndex = $index">
+								<div class="label-article">
+									{{article.order}}. 
+									{{article.title}}
+									{{article.subtitle}}
+									{{article.articleUrl}}
+									{{article.thumbnailUrl}}
+								</div>
+								<div class="button-group">
+									<button ng-hide="editingArticleId == article._id && currentArticleCategoryId == articleCategory._id" ng-click="showArticleEditForm(article, articleCategory)" ><span><img src="../../assets/image/icon/edit.png" alt=""></span></button>	
+									<button class="button-delete" ng-hide="editingArticleId == article._id && currentArticleCategoryId == articleCategory._id" ng-click="removeArticle(article, articleCategory)" ><span><img src="../../assets/image/icon/delete.png" alt=""></span></button>	
+								</div>
+								<form novalidate class="edit-article-form" ng-show="editingArticleId == article._id && currentArticleCategoryId == articleCategory._id">	
+									<div class="form-row title-form">
+										<label >修改文章</label>
+									</div>
+									<div class="form-row">
+										<label>序号: </label><input type="number" ng-model="editingArticle.neworder" />
+									</div>
+									<div class="form-row">
+										<label>标题: </label><input type="text" ng-model="editingArticle.title" />
+									</div>
+									<div class="form-row">
+										<label>副标题: </label><input type="text" ng-model="editingArticle.subtitle" />
+									</div>
+									<div class="form-row">
+										<label>文章链接: </label><input type="text" ng-model="editingArticle.articleUrl" />
+									</div>
+									<div class="form-row">
+										<label>缩略图链接: </label><input type="text" ng-model="editingArticle.thumbnailUrl" />
+									</div>
+								    <div class="button">
+									    <input class="button-cancel" type="button" ng-click="hideArticleEditForm()" value="取消" />
+									    <input type="submit" ng-click="updateArticle(article, articleCategory)" value="确认" />
+								    </div>
+								</form>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-sm-12 col-md-6">
+			<div class="recipes-section">
+				<div class="title-recipe-category">
+					<h4>食谱目录</h4>
+					<div class="button-group">
+						<button ng-click="showNewRecipeCategoryForm()" ng-model="recipeCategoryFormOn" ng-hide="recipeCategoryFormOn"><span><img src="../../assets/image/icon/add.png" alt=""></span></button>
+					</div>
+					<form class="new-recipe-category-form" name="newRecipeCategoryForm" novalidate class="new-category-form" ng-show="recipeCategoryFormOn">
+						<div class="form-row title-form">
+							<label >添加新类别</label>
+						</div>
+						<div class="form-row">
+							<label>序号: </label> <input type="number" name="newRecipeCategoryOrder" ng-model="newRecipeCategory.order" />
+						</div>
+					    <div class="form-row">
+						    <label>类别名称: </label><input type="text" name="newRecipeCategoryTitle" ng-model="newRecipeCategory.title" placeholder="（必须）" required /><br>
+					    </div>
+					    <div class="form-row">	
+					    	<label for=""></label><span class="warning" ng-show="newRecipeCategoryForm.newRecipeCategoryTitle.$touched && newRecipeCategoryForm.newRecipeCategoryTitle.$invalid">请填写标题</span>
+					    </div>
+						<div class="button">
+						    <input class="button-cancel" type="button" ng-click="cancelNewRecipeCategoryForm()" value="取消" />
+						    <input type="submit" ng-click="addNewRecipeCategory()" value="确认" />
+						</div>
+					</form>
+				</div>
+				<ul class="list-recipe-category">
+					<li ng-repeat="recipeCategory in recipeCategories | orderBy: 'order'" 
+						ng-init="recipeCategoryIndex = $index" >
+						<div class="row">	
+							<div class="label-recipe-category">	
+								<label >{{recipeCategory.order}}. {{recipeCategory.title}}</label>
+							</div>
+							<div class="button-group">
+								<button ng-hide="editingRecipeCategoryId == recipeCategory._id || addingRecipeCategoryId == recipeCategory._id" ng-click="showNewRecipeFrom(recipeCategory)"><span><img src="../../assets/image/icon/add.png" alt=""></span></button>
+								<button ng-hide="editingRecipeCategoryId == recipeCategory._id  || addingRecipeCategoryId == recipeCategory._id" ng-click="showRecipeCategoryEditForm(recipeCategory)" ><span><img src="../../assets/image/icon/edit.png" alt=""></span></button>	
+								<button class="button-delete" ng-hide="editingRecipeCategoryId == recipeCategory._id  || addingRecipeCategoryId == recipeCategory._id" ng-click="removeRecipeCategory(recipeCategory, recipeCategory._id)"><span><img src="../../assets/image/icon/delete.png" alt=""></span></button>
+							</div>
+							<form novalidate class="update-recipe-category-form" ng-show="editingRecipeCategoryId === recipeCategory._id">
+								<div class="form-row title-form">
+									<label >修改类别</label>
+								</div>
+								<div class="form-row">
+									<label>序号: </label><input type="number" ng-model="editingRecipeCategory.neworder" />
+								</div>
+								<div class="form-row">
+									<label>名称: </label><input type="text" ng-model="editingRecipeCategory.title" />
+								</div>
+								<div class="button">
+								    <input class="button-cancel" type="button" ng-click="hideRecipeCategoryEditForm()" value="取消" />
+								    <input type="submit" ng-click="updateRecipeCategory(recipeCategory)" value="确认" />
+								</div>
+							</form>
+						</div>
+						
+						<form name="newRecipeFrom" novalidate class="new-recipe-form" ng-show="addingRecipeCategoryId == recipeCategory._id">
+							<div class="form-row title-form">
+								<label >添加新食谱到{{recipeCategory.title}}</label>
+							</div>
+							<div class="form-row">
+								<label>序号: </label><input type="number" name="newRecipeOrder" ng-model="newRecipe.order" />
+							</div>
+							<div class="form-row">
+								<label>标题: </label><input type="text" name="newRecipeTitle" ng-model="newRecipe.title" placeholder="（必须）" required />
+							</div>
+							<div class="form-row">
+								<label></label><span class="warning" ng-show="newRecipeFrom.newRecipeTitle.$touched && newRecipeFrom.newRecipeTitle.$invalid">请填写标题</span>
+							</div>
+							<div class="form-row">
+								<label>副标题: </label><input type="text" ng-model="newRecipe.subtitle" /></label>
+							</div>
+							<div class="form-row">
+								<label>文章链接: </label><input type="text" name="newRecipeUrl" ng-model="newRecipe.recipeUrl" placeholder="（必须）" required type='url'/>
+							</div>
+							<div class="form-row">
+								<label></label><span class="warning"  ng-show="newRecipeFrom.newRecipeUrl.$touched && newRecipeFrom.newRecipeUrl.$invalid">请填写文章链接</span>
+							</div>
+							<div class="form-row">
+								<label>缩略图链接: </label><input type="text" ng-model="newRecipe.thumbnailUrl"  />
+							</div>
+						    
+							<div class="button">
+							    <input class="button-cancel" type="button" ng-click="hideRecipeForm()" value="取消" />
+							    <input type="submit" ng-click="addNewRecipe(recipeCategory)" value="确认" />	
+							</div>
+						</form>
+						<ul class="list-recipe" >
+							<li ng-repeat="recipe in recipeCategory.recipes | orderBy: 'order'" 
+								ng-init="recipeIndex = $index">
+								<div class="label-recipe">
+									{{recipe.order}}. 
+									{{recipe.title}}
+									{{recipe.subtitle}}
+									{{recipe.recipeUrl}}
+									{{recipe.thumbnailUrl}}
+								</div>
+								<div class="button-group">
+									<button ng-hide="editingRecipeId == recipe._id && currentRecipeCategoryId == recipeCategory._id" ng-click="showRecipeEditForm(recipe, recipeCategory)" ><span><img src="../../assets/image/icon/edit.png" alt=""></span></button>	
+									<button class="button-delete" ng-hide="editingRecipeId == recipe._id && currentRecipeCategoryId == recipeCategory._id" ng-click="removeRecipe(recipe, recipeCategory)" ><span><img src="../../assets/image/icon/delete.png" alt=""></span></button>	
+								</div>
+								<form novalidate class="edit-recipe-form" ng-show="editingRecipeId == recipe._id && currentRecipeCategoryId == recipeCategory._id">
+									<div class="form-row title-form">
+										<label >修改食谱</label>
+									</div>
+									<div class="form-row">
+										<label>序号: </label><input type="number" ng-model="editingRecipe.neworder" />
+									</div>
+									<div class="form-row">
+										<label>标题: </label><input type="text" ng-model="editingRecipe.title" />
+									</div>
+									<div class="form-row">
+										<label>副标题: </label><input type="text" ng-model="editingRecipe.subtitle" />
+									</div>
+									<div class="form-row">
+										<label>文章链接: </label><input type="text" ng-model="editingRecipe.recipeUrl" />
+									</div>
+									<div class="form-row">
+										<label>缩略图链接: </label><input type="text" ng-model="editingRecipe.thumbnailUrl" />
+									</div>
+								    <div class="button">
+									    <input class="button-cancel" type="button" ng-click="hideRecipeEditForm()" value="取消" />
+									    <input type="submit" ng-click="updateRecipe(recipe, recipeCategory)" value="确认" />
+								    </div>
+								</form>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+

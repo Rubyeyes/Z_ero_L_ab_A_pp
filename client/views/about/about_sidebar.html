@@ -1,0 +1,23 @@
+<div  class="articles-sidebar-container" >
+
+	<div  class="panel panel-default panel-articles-sidebar" id="articles_sidebar">
+		<ul scrollsidebar class="articles-catetories">
+	        <li ng-class="{active_articles_sidebar: isActive('us')}">
+	        	<a href="/about?category=us" ng-click="show('us')" >关于X生酮实验室</a>
+	        </li>
+	        <li ng-class="{active_articles_sidebar: isActive('theory')}" >
+	        	<a href="/about?category=theory" ng-click="show('theory')">不作恶</a>
+	        </li>
+	        <li ng-class="{active_articles_sidebar: isActive('contribution')}">
+	        	<a href="/about?category=contribution" ng-click="show('contribution')">投稿</a>
+	        </li>
+	        <li ng-class="{active_articles_sidebar: isActive('share')}">
+	        	<a href="/about?category=share" ng-click="show('share')">转载须知</a>
+	        </li>
+	        <li ng-class="{active_articles_sidebar: isActive('contact')}">
+	        	<a href="/about?category=contact" ng-click="show('contact')">联系我们</a>
+	        </li>
+		</ul>
+	</div>
+
+</div>

@@ -1,0 +1,28 @@
+.about-container {
+	position: inherit;
+	margin-top: 60px;
+}
+.about-content {
+	padding: 40px 0px;
+}
+.about-container .title {
+	font-size: 24px;
+	color: #333333;
+	padding: 20px 0px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.about-container .content{
+	font-size: 16px;
+}
+
+.about-container .content p{
+	font-size: 16px;
+	text-align: left;
+}
+
+/*contact*/
+.panel-about-contact {
+	padding: 15px;
+}

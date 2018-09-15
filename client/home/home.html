@@ -1,0 +1,74 @@
+<!-- <style>
+	body {
+	  background: url(../assets/image/index/Coming-soon.jpeg) no-repeat center center fixed; 
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	}
+</style> -->
+<section class="main-banner">
+	<a href="{{currentBanner.imgHref}}" target="_blank"><img class="banner" src="{{currentBanner.imgUrl}}" alt="mainbanner"></a>	
+</section>
+<section class="sub-banner">
+	<div class="sub-banner-image" ng-repeat="banner in webSubBanners">
+		<a href="banner.imgHref"><img src="{{banner.imgUrl}}" alt=""></a>
+	</div>
+</section>
+
+<section class="socialmedia">	
+	<div class="col-xs-12">
+		<p class="social-title">关注我们，获取最新健康资讯</p>
+	</div>
+	<div class="container">
+		<div class="col-xs-12 col-sm-2">
+			<a href="https://zhuanlan.zhihu.com/xketolab" target="_blank">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<img src="assets/image/home/x生酮实验室_知乎.png" alt="知乎">
+					</div>
+					<div class="panel-footer">知乎专栏</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-xs-12 col-sm-2">
+			<a href="http://weibo.com/u/2194878224" target="_blank">
+				<div class="panel panel-default" href="http://weibo.com/u/2194878224">
+					<div class="panel-body">
+						<img src="assets/image/home/x生酮实验室_微博.png" alt="微博">
+					</div>
+					<div class="panel-footer">新浪微博</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-xs-12 col-sm-2">
+			<a href="http://weibo.com/u/2194878224" target="_blank">
+				<div class="panel panel-default" href="https://www.douban.com/group/xketolab/">
+					<div class="panel-body">
+						<img src="assets/image/home/x生酮实验室_豆瓣.png" alt="豆瓣小组">
+					</div>
+					<div class="panel-footer">豆瓣小组</div>
+				</div>
+			</a>
+		</div>
+
+		<div class="col-xs-12 col-sm-2">
+			<a href="http://fd.zaih.com/tutor/594656662" target="_blank">
+				<div class="panel panel-default" href="http://fd.zaih.com/tutor/594656662">
+					<div class="panel-body">
+						<img src="assets/image/home/x生酮实验室_分答.png" alt="分答">
+					</div>
+					<div class="panel-footer">分答平台</div>
+				</div>
+			</a>
+		</div>
+		<div class="col-xs-12 col-sm-2">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<img src="assets/image/home/x生酮实验室_微信.jpg" alt="微信">
+				</div>
+				<div class="panel-footer">微信公众号</div>
+			</div>
+		</div>
+	</div>
+</section>

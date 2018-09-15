@@ -1,0 +1,105 @@
+.container-fooddb {
+	margin: 20px;
+}
+
+.number-per-page {
+	float: right;
+	margin-right: 10px;
+	margin-top: 7px;
+}
+
+.table-toolbar .btn {
+	float: right;
+	margin-right : 10px;
+}
+
+.table-toolbar {
+	border-color: transparent;
+	border-bottom-color: #dddddd;
+}
+
+.table-toolbar .panel-body{
+	padding: 10px 0 10px 0;
+}
+
+.table-pagination {
+	text-align: center;
+}
+
+.page-number {
+	float: right;
+    margin-top: 7px;
+}
+
+.panel-food .panel-heading {
+	padding: 0px;
+	border-bottom: solid 2px #ddd;
+}
+
+.panel-food .panel-heading table{
+	padding: 5px 10px;
+}
+
+.panel-food .panel-heading tr{
+	border-bottom: solid 1px #ddd;
+}
+
+.panel-food .panel-heading td, 
+.panel-food .panel-heading th {
+	padding: 3px 15px;
+}
+
+.panel-food .panel-body p {
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.panel-food .panel-body {
+	border-bottom: solid 1px #dddddd;
+	padding: 10px;
+}
+
+.nutrition-title-zh-CN,
+.nutrition-title {
+	text-overflow: ellipsis;
+}
+
+.nutrition-title-zh-CN {
+	font-size: 20px;
+    margin-bottom: 1px;
+}
+
+.nutrition-title {
+	font-size: 12px;
+	margin-bottom: 1px;
+	color: gray;
+}
+
+.nutri-search-form {
+	width: 100%;
+
+}
+
+.nutri-search-form input {
+	width: 100%;
+	float: left;
+	border-radius: 3px;
+	padding: 6px 9px 6px 9px;
+	font-family: arial,sans-serif;
+	font-size: 16px;
+	border: solid 1px #dddddd;
+}
+
+.second-category td.category-title{
+	padding-left: 40px;
+}
+
+@media screen and (max-width: 767px) {
+	.container-fooddb {
+	    margin: 0;
+	    padding: 0px;
+	}
+	.nutri-search-form input {
+	    margin: 10px 0px;
+	}
+}

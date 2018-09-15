@@ -1,0 +1,43 @@
+/*.alert {
+	z-index: 10;
+}*/
+.login-container {
+	margin-top: 60px;
+}
+.login-section {
+	text-align: center;
+}
+.panel-auth {
+	background-color: transparent;
+    margin: 60px 0px;
+    width: 470px;
+    display: inline-block;
+    text-align: left;
+    padding: 20px;
+    border: 1px solid #eeeeee;
+    box-shadow: 0 3px 3px rgba(0,0,0,.1);
+}
+.panel-auth > form > div.form-group > label {
+	font-size: 16px;
+	font-weight: normal;
+}
+.btn-auth {	
+	background-color: #98cad1;
+	border-color: #98cad1;
+}
+.btn-forget {
+	float: right;
+}
+.auth-title {
+	color:#555;
+}
+.hr-auth {
+	margin-top: 3px;
+}
+@media screen and (max-width: 480px) {
+	.panel-auth {
+		width: 350px;
+	    border: 0px solid #eeeeee;
+	    box-shadow: 0 0px 0px rgba(0,0,0,.1);
+	}
+}

@@ -1,0 +1,29 @@
+<div class="login-container">
+	<div ng-show="err" class="alert alert-danger row" style="margin:10px;">
+		<span>{{ err }}</span>
+	</div>
+
+	<div ng-show="notice" class="alert alert-success row" style="margin:10px;">
+		<span>{{ notice }}</span>
+	</div>
+
+	<div class="login-section">
+		<div class="panel panle-head panel-auth">
+			<form ng-submit="logIn()" name="form">
+				<h3 class="auth-title">管理员登录</h3>
+				<hr class="hr-auth">
+
+				<div class="form-group">
+					<input type="email" name="email" class="form-control" placeholder="输入邮箱..." ng-model="admin.email" required>
+				</div>
+
+				<div class="form-group">
+					<input type="password" namd="password" class="form-control" placeholder="输入密码..." ng-model="admin.password" required="">
+				</div>
+
+				<button type="submit" class="btn btn-primary btn-auth">确认</button>
+				<a type="button" ng-click="forgetPassword()" class="btn btn-forget" style="margin-left:10px">忘记密码</a>
+			</form>
+		</div>
+	</div>
+</div>

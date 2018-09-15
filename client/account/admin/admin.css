@@ -1,0 +1,233 @@
+.admin-dashboard-container {
+	display: inline-block;
+	margin-top: 60px;
+	padding: 20px;
+	width: 100%;
+    background: #fafafa;
+}
+button, html input[type=button], input[type=reset], input[type=submit] {
+	border-radius: 5px;
+    border-color: rgba(255,255,255,.15);
+    background-image: linear-gradient(#98cad1, #68beca);
+    color: white;
+}
+button img {
+	height: 16px;
+}
+input {
+	border-color: #ddd;
+	border-width: 1px;
+	border-radius: 3px;
+    padding: 0 10px;
+}
+.row-admin {
+	display: inherit;
+    width: 100%;
+}
+.button-delete {
+	background: #f44336;
+}
+.button-cancel {
+	background: #bdbdbd !important;
+}
+.form-row {
+	display: flex;
+	margin-bottom: 3px;
+}
+.form-row label {
+	color: #333333;
+	flex: 1;
+	margin-bottom: 0px;
+}
+.form-row input {
+	color: #333333;
+	flex: 2
+}
+.title-form {
+	font-size: 16px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+.title {
+	margin: 30px 15px;
+}
+.button   {
+	text-align: right;
+	margin-top: 10px;
+}
+.warning {
+	color: red;
+	float: right;
+	flex: 2;
+}
+.button-group{
+	display: inline-block;
+	float: right;
+}
+
+.list-article-category,
+.list-article,
+.list-recipe-category,
+.list-recipe,
+.list-webBanner,
+.list-webSubBanner,
+.list-miniProgramBanner,
+.list-miniProgramSubBanner {
+	list-style: none;
+}
+.articles-section,
+.recipes-section,
+.webBanners-section,
+.webSubBanners-section,
+.miniProgramBanners-section,
+.miniProgramSubBanners-section {
+	padding: 0px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background: white;
+}
+.title-article-category,
+.title-recipe-category,
+.title-webBanner,
+.title-webSubBanner,
+.title-miniProgramBanner ,
+.title-miniProgramSubBanner {
+	background: #98cad1;
+    margin: 0px;
+    padding: 10px 10px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.title-article-category h4,
+.title-recipe-category h4,
+.title-webBanner h4,
+.title-webSubBanner h4,
+.title-miniProgramBanner h4,
+.title-miniProgramSubBanner h4 {
+    color: white;
+    font-weight: bold;
+    display: inline-block;
+    margin: 0px;
+    line-height: 25px;
+}
+.new-article-category-form,
+.new-recipe-category-form,
+.new-webBanner-form ,
+.new-webSubBanner-form ,
+.new-miniProgramBanner-form ,
+.new-miniProgramSubBanner-form {
+	margin: 10px 0px;
+}
+.list-article-category,
+.list-recipe-category,
+.list-webBanner,
+.list-webSubBanner,
+.list-miniProgramBanner ,
+.list-miniProgramSubBanner  {
+	margin: 0px;
+	padding: 20px;
+    background: white;
+    border-radius: 5px;
+}
+.list-article-category li,
+.list-recipe-category li ,
+.list-webBanner li ,
+.list-webSubBanner li ,
+.list-miniProgramBanner li ,
+.list-miniProgramSubBanner li {
+	margin-bottom: 20px;
+}
+.list-article ,
+.list-recipe ,
+.list-webBanner,
+.list-webSubBanner,
+.list-miniProgramBanner {
+	padding-left: 20px;
+}
+.list-article li,
+.list-recipe li ,
+.list-webBanner li ,
+.list-webSubBanner li ,
+.list-miniProgramBanner li,
+.list-miniProgramSubBanner li  {
+	margin-bottom: 10px;
+}
+.list-article-category .row,
+.list-recipe-category .row ,
+.list-webBanner .row  ,
+.list-webSubBanner .row  ,
+.list-miniProgramBanner .row ,
+.list-miniProgramSubBanner .row  {
+	margin: 0px;
+    margin-bottom: 5px;
+}
+.label-article-category,
+.label-article,
+.label-recipe-category,
+.label-recipe ,
+.label-webBanner ,
+.label-webSubBanner ,
+.label-miniProgramBanner,
+.label-miniProgramSubBanner {
+	display: inline-block;
+}
+.new-article-category-form,
+.update-article-category-form,
+.new-article-form,
+.edit-article-form,
+.new-recipe-category-form,
+.update-recipe-category-form,
+.new-recipe-form,
+.edit-recipe-form ,
+.new-webBanner-form,
+.update-webBanner-form,
+.edit-webBanner-form ,
+.new-webSubBanner-form,
+.update-webSubBanner-form,
+.edit-webSubBanner-form ,
+.new-miniProgramBanner-form,
+.update-miniProgramBanner-form,
+.edit-miniProgramBanner-form,
+.edit-miniProgramSubBanner-form {
+	width: 100%;
+	padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: inline-block;
+    background: rgb(238,238,238);
+    margin-bottom: 20px;
+}
+.new-article-category-form,
+.new-recipe-category-form,
+.new-webBanner-form,
+.new-webSubBanner-form,
+.new-miniProgramBanner-form,
+.new-miniProgramSubBanner-form {
+	margin: 20px;
+    width: inherit;
+    display: block;
+}
+.label-webBanner-url,
+.label-webSubBanner-url,
+.label-miniProgramBanner-url,
+.label-miniProgramSubBanner-url {
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 100px;
+    margin-left: 18px;
+
+}
+.label-webBanner-url label,
+.label-webSubBanner-url label,
+.label-miniProgramBanner-url label,
+.label-miniProgramSubBanner-url label {
+    font-weight: normal;
+}
+
+@media only screen and (max-width: 475px) { 
+	.title {
+		font-size: 30px;
+	}
+}

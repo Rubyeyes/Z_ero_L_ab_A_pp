@@ -1,0 +1,97 @@
+<div class="container-fluid container-fooddb"><!-- 
+	<h1>Drop the excel sheet</h1>
+	<input dropexcel type="text">
+	 
+	<br>
+	<br> -->
+   	<div class="col-xs-12">
+		<div class="table-toolbar panel panel-default">
+			<div class="panel-body">
+				<div class="col-xs-12 col-sm-7">
+					<form class="nutri-search-form" ng-submit="searchNutrition()">
+						<input ng-model="nutritionKeyword">
+					</form>
+				</div>
+				<div class="col-xs-12 col-sm-5">
+					<div class="page-number">	
+			    		{{currentPage}} / {{numPages| number: 0}}
+					</div>
+					<button type="button" class="btn btn-default" ng-click="showtable()">
+					  	<span class="glyphicon glyphicon-th" aria-hidden="true"></span>
+					</button>
+					<button type="button" class="btn btn-default" ng-click="showlist()">
+					  	<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+					</button>
+					<div class="number-per-page">
+						View <select ng-model="viewby" ng-change="setItemsPerPage(viewby)"><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option></select> a time.
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="nutrition-table" ng-hide="tableAvailable">
+	    <table class="table table-striped table-hover table-condensed">
+			<tr>
+				<th>名称</th>	
+				<th>热量</th>	
+				<th>蛋白质</th>	
+				<th>脂肪总量</th>	
+				<th>碳水化合物</th>
+			</tr>
+			<tr ng-repeat="row in myFoods.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) " ng-click="showAdvanced($event, row)">
+				<td>{{row.Shrt_Desc_zh_CN}}</td>
+				<td>{{row.Energ_Kcal}}</td>
+				<td>{{row.Protein}}</td>
+				<td>{{row.Lipid_Tot}}</td>
+				<td>{{row.Carbohydrt}}</td>
+			</tr>
+	    </table>
+    </div>
+    <div class="nutrition-panel" ng-show="tableAvailable">
+	    <div ng-repeat="food in myFoods.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) ">
+	    	<div class="col-xs-12 col-sm-4 col-md-3">
+	    		<div class="panel panel-default panel-food" ng-click="showAdvanced($event, food)">
+			    	<div class="panel-body">
+						<p class="nutrition-title-zh-CN">{{food.Shrt_Desc_zh_CN}}</p>	
+						<p class="nutrition-title">{{food.Shrt_Desc}}</p>
+			    	</div>
+			    	<div class="panel-heading">
+			    		<table style="width:100%">
+			    			<tr>
+			    				<th>每</th>
+			    				<th>100 g</th>
+			    			</tr>
+				    		<tr>
+				    			<th>热量: </th>
+								<td>{{food.Energ_Kcal}} Kcal</td>
+				    		</tr>
+				    	</table>
+			    	</div>
+			    	<div class="panel-heading">
+			    		<table style="width:100%">
+				    		<tr>
+				    			<th>蛋白质: </th>	
+								<td>{{food.Protein}} g</td>
+				    		</tr>
+				    		<tr>
+				    			<th>脂肪总量: </th>	
+				    			<td>{{food.Lipid_Tot}} g</td>
+				    		</tr>
+							<tr>
+								<th>碳水化合物: </th>
+								<td>{{food.Carbohydrt}} g</td>
+							</tr>
+			    		</table>
+			    	</div>
+		    	</div>
+	    	</div>
+		</div>
+	</div>
+	<div class="col-xs-12">
+	    <div class="table-pagination">
+			<ul uib-pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" force-ellipses="true"></ul>
+		</div>
+	</div>
+    
+</div>

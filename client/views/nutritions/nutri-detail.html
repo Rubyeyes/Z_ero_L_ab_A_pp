@@ -1,0 +1,110 @@
+<md-dialog aria-label="Mango (Fruit)">
+
+    <md-dialog-content>
+		<div class="panel panel-default panel-food">
+	    	<div class="panel-body">
+				<p class="nutrition-title-zh-CN">{{foodDetail.Shrt_Desc_zh_CN}}</p>	
+				<p class="nutrition-title">{{foodDetail.Shrt_Desc}}</p>
+	    	</div>
+	    	<div class="panel-heading">
+	    		<table style="width:100%">
+	    			<tr>
+	    				<th>每</th>
+	    				<td>100 g</td>
+	    			</tr>
+		    		<tr>
+		    			<th>热量: </th>
+						<td>{{foodDetail.Energ_Kcal}} Kcal</td>
+		    		</tr>
+		    	</table>
+	    	</div>
+	    	<div class="panel-heading">
+	    		<table style="width:100%">
+		    		<tr>
+		    			<th>脂肪总量: </th>	
+		    			<td>{{foodDetail.Lipid_Tot}} g</td>
+		    		</tr>
+    				<tr class="second-category">
+    					<td class="category-title">饱和脂肪酸: </td>
+    					<td>{{foodDetail.FA_Sat}} g</td>
+    				</tr>
+    				<tr class="second-category">
+    					<td class="category-title">单不饱和脂肪酸: </td>
+    					<td>{{foodDetail.FA_Mono}} g</td>
+    				</tr>
+    				<tr class="second-category">
+    					<td class="category-title">多不饱和脂肪酸: </td>
+    					<td>{{foodDetail.FA_Poly}} g</td>
+    				</tr>
+		    		<tr>
+		    			<th>蛋白质: </th>	
+						<td>{{foodDetail.Protein}} g</td>
+		    		</tr>
+					<tr>
+						<th>碳水化合物: </th>
+						<td>{{foodDetail.Carbohydrt}} g</td>
+					</tr>
+					<tr>
+						<th>胆固醇: </th>
+						<td>{{foodDetail.Cholestrl}} mg</td>
+					</tr>
+					<tr>
+						<th>钠: </th>
+						<td>{{foodDetail.Sodium}} mg</td>
+					</tr>
+					<tr>
+						<th>钾: </th>
+						<td>{{foodDetail.Potassium}} mg</td>
+					</tr>
+					<tr>
+						<th>总碳水量: </th>
+						<td>{{foodDetail.Carbohydrt}} g</td>
+					</tr>
+    				<tr class="second-category">
+    					<td class="category-title">膳食纤维: </td>
+    					<td>{{foodDetail.Fiber_TD}} g</td>
+    				</tr>
+    				<tr class="second-category">
+    					<td class="category-title">糖: </td>
+    					<td>{{foodDetail.Sugar_Tot}} g</td>
+    				</tr>
+					<tr>
+						<th>蛋白质</th>
+						<td>{{foodDetail.Protein}} g</td>
+					</tr>
+	    		</table>
+	    	</div>
+
+    		<div class="panel-heading">
+    			<table style="width:100%">
+		    		<tr>
+		    			<td>维生素A: </td>	
+		    			<td>{{foodDetail.Vit_A_IU}} IU</td>
+		    			<td>维生素C: </td>	
+		    			<td>{{foodDetail.Vit_C}} mg</td>
+		    		</tr>
+		    		<tr>
+		    			<td>钙: </td>	
+		    			<td>{{foodDetail.Calcium}} mg</td>
+		    			<td>铁: </td>	
+		    			<td>{{foodDetail.Iron}} mg</td>
+		    		</tr>
+		    		<tr>
+		    			<td>维生素D: </td>	
+		    			<td>{{foodDetail.Vit_D_mcg}} ug</td>
+		    			<td>维生素B-6: </td>	
+		    			<td>{{foodDetail.Vit_B6}} mg</td>
+		    		</tr>
+		    		<tr>
+		    			<td>维生素B-12: </td>	
+		    			<td>{{foodDetail.Vit_B12}} ug</td>
+		    			<td>镁: </td>	
+		    			<td>{{foodDetail.Magnesium}} mg</td>
+		    		</tr>
+    				
+    			</table>
+    		</div>
+    	</div>
+    </md-dialog-content>
+
+</md-dialog>

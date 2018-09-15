@@ -1,0 +1,72 @@
+<div class="container-fluid">
+	<div class="col-xs-12 col-sm-2 position-inherit articles-sidebar-container" >
+
+		<div  class="panel panel-default panel-articles-sidebar" id="articles_sidebar">
+			<ul scrollsidebar class="articles-catetories">
+		        <li ng-class="{active_articles_sidebar: isActive('theory')}">
+		        	<a href="#" ng-click="show('theory')" >理论死磕</a>
+		        	<a href="#" ng-click="open('theory')"><span>+</span></a>
+		        	<ul class="articles-subcatetories"  uib-collapse="status.isopen_theory">
+		        		<li ng-class="{active_articles_sidebar: isActive('yuanli')}">
+		        			<a href="#" ng-click="show('yuanli')" scrollbacktop>原理</a>
+		        		</li>
+		        		<li ng-class="{active_articles_sidebar: isActive('dizhiyinshi')}">
+		        			<a href="#" ng-click="show('dizhiyinshi')" scrollbacktop>低脂饮食</a>
+		        		</li>
+		        	</ul>
+		        </li>
+		        <li ng-class="{active_articles_sidebar: isActive('practice')}" >
+		        	<a href="#" ng-click="show('practice')">实践攻略</a>
+		        	<a href="#" ng-click="open('practice')"><span>+</span></a>
+		        	<ul class="articles-subcatetories"  uib-collapse="status.isopen_practice">
+		        		<li ng-class="{active_articles_sidebar: isActive('rumen')}">
+		        			<a href="#" ng-click="show('rumen')" scrollbacktop>入门</a>
+		        		</li>
+		        		<li ng-class="{active_articles_sidebar: isActive('shiwu')}">
+		        			<a href="#" ng-click="show('shiwu')" scrollbacktop>食物宝典</a>
+		        		</li>
+		        		<li ng-class="{active_articles_sidebar: isActive('shiying')}">
+		        			<a href="#" ng-click="show('shiying')" scrollbacktop>适应期</a>
+		        		</li>
+		        	</ul>
+		        </li>
+		        <li ng-class="{active_articles_sidebar: isActive('women')}">
+		        	<a href="#" ng-click="show('women')">女性关怀</a>
+		        	<a href="#" ng-click="open('women')"><span>+</span></a>
+		        	<ul class="articles-subcatetories"  uib-collapse="status.isopen_women">
+		        		<li ng-class="{active_articles_sidebar: isActive('dayima')}">
+		        			<a href="#" ng-click="show('dayima')" scrollbacktop>大姨妈</a>
+		        		</li>
+		        	</ul>
+		        </li>
+		        <li ng-class="{active_articles_sidebar: isActive('recipe')}">
+		        	<a href="#" ng-click="show('recipe')">食谱分享</a>
+		        	<a href="#" ng-click="open('recipe')"><span>+</span></a>
+		        	<ul class="articles-subcatetories"  uib-collapse="status.isopen_recipe">
+		        		<li ng-class="{active_articles_sidebar: isActive('reganmian')}">
+		        			<a href="#" ng-click="show('reganmian')" scrollbacktop>热干面</a>
+		        		</li>
+		        		<li ng-class="{active_articles_sidebar: isActive('beizidangao')}">
+		        			<a href="#" ng-click="show('beizidangao')" scrollbacktop>杯子蛋糕</a>
+		        		</li>
+		        	</ul>
+		        </li>
+		        </li>
+			</ul>
+		</div>
+
+	</div>
+
+	<div class="col-xs-12 col-sm-10 articles-container">
+
+		<div ng-include="articleUrl" class="to-top-content"></div>
+
+	</div>
+
+	<div class="back-to-top" scrollbacktop>
+		<button class="btn btn-scroll-up">
+			<img src="/assets/image/icon/scroll-up.png" alt="">
+		</button>
+		<div class="icon-blur-cover"></div>
+	</div>
+</div>

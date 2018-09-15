@@ -1,0 +1,51 @@
+<div class="container contianer-gigl">
+	<div class="col-xs-12">
+		<h2 class="title-gigl">常见食物的升糖指数和升糖负荷</h2>
+	</div>
+	<div class="col-xs-12">
+		<p class="paragraph-gigl">常见食物的升糖指数（GI）和升糖负荷（GL）（实验者的葡萄糖耐量均在正常范围内）由于参考实验不同，受试者人种和体质也不同，本表数据无可避免会存在误差，仅供参考。本列表参考自：Atkinson FS, Foster-Powell K, Brand-Miller JC. International Tables of Glycemic Index and Glycemic Load Values: 2008. Diab Care 2008; 31(12). （GL计算以葡萄糖为参考食物）（净碳水 = 总碳水化合物 - 膳食纤维）</p>
+
+		<div class="table-container-gigl">	
+			<table class="table-gigl table table-stripe">
+				<thead>
+					<tr class="table-first-row">
+						<th class="first-coloum" >
+							<div ng-click="sortBy('name')">食物名称</div>
+							<input class="table-search" type="text" ng-model="searchText.name">
+						</th>
+						<th ng-click="sortBy('gip')">GI²（葡萄糖=100）</th>
+						<th ng-click="sortBy('gim')">GI²（面包=100）</th>
+						<th ng-click="sortBy('fw')">每份食物重量（克）</th>
+						<th ng-click="sortBy('cbw')">每份食物含净碳水化合物量（克）</th>
+						<th ng-click="sortBy('gl')">每份食物的GL</th>
+						<th >
+							<div ng-click="sortBy('type')">分类</div>
+							<select class="table-select" name="singleSelect" ng-model="searchText.type">
+						      <option value="主食类">主食类</option>
+						      <option value="其他零食类">其他零食类</option>
+						      <option value="甜点类">甜点类</option>
+						      <option value="饮料类">饮料类</option>
+						      <option value="水果类">水果类</option>
+						      <option value="豆类">豆类</option>
+						      <option value="熟食类">熟食类</option>
+						      <option value="糖类">糖类</option>
+						      <option value="蔬菜类">蔬菜类</option>
+						      <option value="">全部</option>
+						    </select>
+						</th>
+					</tr>
+				</thhead>
+				<tbody ng-repeat="food in giglFood | orderBy : foodOrder : reverse | filter: searchText">
+					<th>{{food.name}}</th>
+					<td>{{food.gip}}</td>
+					<td>{{food.gim}}</td>
+					<td>{{food.fw}}</td>
+					<td>{{food.cbw}}</td>
+					<td>{{food.gl}}</td>
+					<td>{{food.type}}</td>
+				</tbody>
+			</table>	
+		</div>
+	</div>		
+
+</div>

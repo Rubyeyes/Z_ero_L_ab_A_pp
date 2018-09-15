@@ -1,0 +1,469 @@
+<div class="container container-calculation">
+	<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2" id="calculation">
+
+		<section class="introduction" ng-if="showForm(0)">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h1 class="calculation-title">X生酮计算器</h1>
+				</div>
+				<div class="panel-body">
+					<p>主人你好!</p>
+					<p>我叫X生酮计算器，你也可以叫我小X。小X是专为「生酮人」设计的小工具。简单七个步骤，输入一些关键信息，我就能帮你估算出每日大概所需卡路里、脂肪、碳水化合物、以及蛋白质哦！</p>
+					<p>简单介绍一下：生酮饮食是一种高脂肪、适量蛋白质、低碳水化合物饮食，透过强迫人体燃烧脂肪而非碳水化合物，模拟饥饿状态。注意：每个人的身体代谢和疾病状况不同，小X只能为大多数人提供一个参考值，如有特殊疾病或生理要求，敬请咨询医生哦。</p>
+				</div>
+				<div class="panel-footer">
+						<div class="row">
+							<div class="col-xs-6 btn-prev">
+							</div>
+							<div class="col-xs-6 btn-next">
+								<button type="button" ng-click="nextForm(0)" class="btn">开始</button>
+							</div>
+						</div>
+				</div>
+		</section>
+
+		<form name="calculatorForm1" ng-if="showForm(1)">
+			<section id="calculation_form1" >
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3>第一步：你的基础代谢是多少？</h3>
+						<p>基础代谢率（BMR）：指的是你静止不动状态下维持生命所需消耗的最低能量。</p>
+						<p>食物热效应（TEF）：指的是因为摄食而引起的热能的额外消耗。</p>
+						<p>请帮小X输入以下数据，我可以帮主人估算出你的BMR和TEF哦！（注：使用 Mifflin-St.Jeor 公式计算[1]）</p>
+					</div>
+					<div class="panel-body">
+						<md-input-container class="md-block">
+          					<label>选择你的性别</label>	
+							<md-select ng-model="user.sex" name="sex" ng-change="checkForm(1)" required>
+							    <md-option  type="text" ng-value="sex" ng-repeat="sex in sexes">{{ sex.description }}</md-option>
+							</md-select>
+	    					<div ng-messages="calculatorForm1.sex.$error">
+						    	<div ng-message="required">This is required.</div>
+						    </div>
+					    </md-input-container>
+
+						<div layout-gt-sm="row">
+							<md-input-container class="md-block">
+          						<label>体重 kg</label>
+							    <input name="weight" type="number" ng-model="user.weight" required ng-change="checkForm(1)">
+	        					<div ng-messages="calculatorForm1.weight.$error">
+							    	<div ng-message="required">This is required.</div>
+							    </div>
+							</md-input-container>
+
+							<md-input-container class="md-block">
+          						<label>身高 cm</label>
+							    <input name="height" type="number" ng-model="user.height" required ng-change="checkForm(1)">
+	        					<div ng-messages="calculatorForm1.height.$error">
+							    	<div ng-message="required">This is required.</div>
+							    </div>
+							</md-input-container>
+
+							<md-input-container class="md-block">
+          						<label>年龄 岁</label>
+							    <input name="age" type="number" ng-model="user.age" required ng-change="checkForm(1)">
+	        					<div ng-messages="calculatorForm1.age.$error">
+							    	<div ng-message="required">This is required.</div>
+							    </div>
+							</md-input-container>
+						</div>
+
+						<!-- <md-input-container class="md-block">
+							<md-datepicker ng-model="myDate" md-placeholder="输入生日" md-open-on-focus required></md-datepicker>
+						</md-input-container> -->
+						<div ng-show="showMR">
+							<h4>根据主人输入的数据，你的代谢水平如下：</h4>
+							<table class="table">
+								<tr>
+									<td>基础代谢率（BMR）：</td>
+									<th> {{ myBmr() | number: 0}} 大卡</th>	
+								</tr>
+								<tr>
+									<td>食物热效应（TEF）：</td>
+									<th> {{ myBmr()*0.1 | number: 0}} 大卡</th>	
+								</tr>
+								<tr>
+									<td>BMR+TEF：</td>
+									<th> {{ myBmr()*1.1 | number: 0}} 大卡</th>	
+								</tr>
+						</table>
+						</div>
+
+					</div>
+					<div class="panel-footer" >
+						<div class="row">
+							<div class="col-xs-6 btn-prev">
+							</div>
+							<div class="col-xs-6 btn-next">
+								<button type="submit" ng-click="nextForm(1)" class="btn">下一步</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</form>
+
+		<form name="calculatorForm2" ng-if="showForm(2)">
+			<section id="calculation_form2" >
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3>第二步：你的每日能量消耗是多少？</h3>
+						<p>
+							在现实生活中，你真正的每日能量消耗很大程度上还取决于你的体力活动。
+						</p>
+						<p>
+							主人请在下面选择你的体力活动量，小X可以帮你估算出你平均每日燃烧卡路里的总和哦！
+						</p>
+					</div>
+					<div class="panel-body">
+						<md-input-container class="md-block">
+							<label>选择你的每日运动量</label>
+							<md-select ng-model="user.lvl" name="lvl" required ng-change="checkForm(2)">
+							    <md-option ng-value="lvl" ng-repeat="lvl in actLvls">{{ lvl.description }}</md-option>
+							</md-select>
+	    					<div ng-messages="calculatorForm2.lvl.$error">
+						    	<div ng-message="required">This is required.</div>
+						    </div>
+						</md-input-container>
+						<table class="table" ng-show="showDE">
+							<tr>
+								<td>主人大约每日能燃烧:</td>
+								<th> {{ myEngExp() | number: 0}} 大卡呢！</th>	
+							</tr>
+						</table>
+					</div>
+					<div class="panel-footer">
+						<div class="row">
+							<div class="col-xs-6 btn-prev">
+								<button type="button" ng-click="prevForm(2)" class="btn btn-prev">上一步</button>
+							</div>
+							<div class="col-xs-6 btn-next">
+								<button type="submit" ng-click="nextForm(2)" class="btn btn-next">下一步</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</form>
+
+		<form name="calculatorForm3" ng-if="showForm(3)">
+			<section id="calculation_form3">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3>第三步：你的体脂率是多少？</h3>
+						<p>
+							想要计算你每天所需食物摄入量，小X也需要知道主人的体脂率哦！
+						</p>
+						<p>
+							最准确的测试体脂率的方法是 DEXA 扫描，但是比较麻烦，价格也贵。其他方法包括：脂肪夹测量、BIA测量法、bod pod test 等等。当然，还有一种最简便的方法：目测……
+						</p>
+						<p>
+							如果主人不知道自己的体脂率，那就请点击下面的按钮对比估计一下吧！
+						</p>
+						 <md-menu>
+							 <md-button ng-click="$mdOpenMenu(); getImgSrc()" class="bfr-img-btn">
+							    <div>点击体脂率对比图片</div>
+							 </md-button>
+							 <md-menu-content>
+							     <md-menu-item>
+							     	<img ng-src={{img_src}} alt="">
+							     </md-menu-item>
+							 </md-menu-content>
+						</md-menu>
+					</div>
+					<div class="panel-body">
+
+						<md-input-container class="md-block">
+							<label>体脂率 %</label>
+						    <input type="number" name="bfr" ng-model="user.bfr" required>
+	    					<div ng-messages="calculatorForm3.bfr.$error">
+						    	<div ng-message="required">This is required.</div>
+						    </div>
+						</md-input-container>
+
+					</div>
+					<div class="panel-footer">
+						<div class="row">
+							<div class="col-xs-6 btn-prev">
+								<button type="button" ng-click="prevForm(3)" class="btn btn-prev">上一步</button>
+							</div>
+							<div class="col-xs-6 btn-next">
+								<button type="submit" ng-click="nextForm(3)" class="btn btn-next">下一步</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</form>
+
+		<form name="calculatorForm4" ng-if="showForm(4)">
+			<section id="calculation_form4" >
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3>第四步：你每天能吃多少总碳水？</h3>
+						<p>
+							碳水摄入量会直接影响到生酮的效果哦！以下是比较常见的三种低碳水饮食的碳水限制：
+						</p>
+						<table class="table">
+							<tr>
+								<th>不严格的生酮饮食：</th>	<td>总碳水 < 100 克/天</td>
+							</tr>
+							<tr>
+								<th>温和的生酮饮食：</th>		<td>总碳水 < 50 克/天</td>
+							</tr>
+							<tr>
+								<th>严格的生酮饮食：</th>		<td>总碳水 < 20 克/天</td>
+							</tr>
+						</table>
+						<p>
+							如果是普通人，总碳水控制在30克内就能保持生酮状态。碳水越低，身体的酮体浓度就越高，说明减脂效果越好。（一型糖尿病人除外！）
+						</p>
+						<p>
+							胰岛素抵抗的病人，需要更严格地控制碳水。
+						</p>
+						<p>
+							运动量大、代谢率高的人，可以适当的提高总碳水摄入哦。
+						</p>
+						<p>
+							请主人根据自己的情况和需求，输入一个自己想要保持的每日碳水摄入量吧
+						</p>
+					</div>
+					<div class="panel-body">
+
+						<md-input-container class="md-block">
+							<label>总碳水量 g</label>
+						    <input type="number" name="carb" ng-model="user.carb" required>
+	    					<div ng-messages="calculatorForm4.carb.$error">
+						    	<div ng-message="required">This is required.</div>
+						    </div>
+						</md-input-container>
+
+					</div>
+					<div class="panel-footer">
+						<div class="row">
+							<div class="col-xs-6 btn-prev">
+								<button type="button" ng-click="prevForm(4)" class="btn btn-prev">上一步</button>
+							</div>
+							<div class="col-xs-6 btn-next">
+								<button type="submit" ng-click="nextForm(4)" class="btn btn-next">下一步</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</form>
+
+		<form name="calculatorForm5" ng-if="showForm(5)">
+			<section id="calculation_form5" >
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3>第五步：你每天能吃多少蛋白质？</h3>
+						<p>
+							每个人都需要足够的蛋白质来维持你的肌肉，但又不能摄入过多哦，否则就没办法保持生酮状态了哦！
+						</p>
+						<p>
+							基于你前面的个人数据。小X估算出你的蛋白质摄入量大概需要保持在  <b>{{proteinMin() | number: 0}} g</b> 到 <b>{{proteinMax() | number: 0}} g</b>之间。
+						</p>
+						<p>
+							<b>{{proteinMin() | number: 0}} g </b>是在主人不运动的情况下防止肌肉减少所需要的最少蛋白量。[2]
+						</p>
+						<p>
+							<b>{{proteinMax() | number: 0}} g </b> 是在主人进行大量强压运动下防止肌肉减少所需的最大蛋白量。（健身者、老年人、以及受伤恢复中的人通常需要摄入更多的蛋白质）[3]
+						</p>
+						<p>
+							请主人根据自己的情况，在下面输入一个合理的蛋白质摄入值吧！如果你不确定的话，可以保守地选择中间值。
+						</p>
+					</div>
+					<div class="panel-body">
+						
+						<md-input-container class="md-block">
+							<label>{{proteinMin() | number: 0}} g < 蛋白质摄入量 < {{proteinMax() | number: 0}} g</label>
+						    <input type="number" name="protein" ng-model="user.protein" required> 
+	    					<div ng-messages="calculatorForm5.protein.$error">
+						    	<div ng-message="required">This is required.</div>
+						    </div>
+						    
+						</md-input-container>
+
+					</div>
+					<div class="panel-footer">
+						<div class="row">
+							<div class="col-xs-6 btn-prev">
+								<button type="button" ng-click="prevForm(5)" class="btn btn-prev">上一步</button>
+							</div>
+							<div class="col-xs-6 btn-next">
+								<button type="submit" ng-click="nextForm(5)" class="btn btn-next">下一步</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>	
+		</form>
+
+		<form name="calculatorForm6" ng-if="showForm(6)">
+			<section id="calculation_form6" >
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3>第六步：你的体重目标？</h3>
+						<p>
+							原则上，最简单的生酮饮食就是在控制了碳水化合物和蛋白质摄入量的前提下，剩下的热量用脂肪来填满了！主人可以加入足量的脂肪直到让自己满足为止。但是主人请记得听从自己的身体哦：饿了就吃，不饿就不需要吃。
+						</p>
+						<p>
+							
+						</p>
+					</div>
+					<div class="panel-body">
+						<md-input-container class="md-block">
+							<label>请主人先选择自己的减脂/增重目标</label>
+							<md-select ng-model="user.goal" name="goal" required class="md-block" >
+							    <md-option ng-value="goal" ng-repeat="goal in goals">{{ goal.description }}</md-option>
+							</md-select>
+	    					<div ng-messages="calculatorForm6.goal.$error">
+						    	<div ng-message="required">This is required.</div>
+						    </div>
+						</md-input-container>
+
+					</div>
+					<div class="panel-footer">
+						<div class="row">
+							<div class="col-xs-6 btn-prev">
+								<button type="button" ng-click="prevForm(6)" class="btn btn-prev">上一步</button>
+							</div>
+							<div class="col-xs-6 btn-next">
+								<button type="submit" ng-click="nextForm(6)" class="btn btn-next">下一步</button>
+							</div>
+						</div>
+					</div>
+				</div>				
+			</section>	
+		</form>
+
+		<form name="calculatorForm7" ng-if="showForm(7)">	
+			<section id="calculation_form7" >
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3>第七步：你每天能吃多少卡路里/脂肪？</h3>
+						<p>
+							从之前所有数据来看，主人已经吃了{{user.carb | number: 0}}g碳水化合物和{{user.protein | number : 0}}g蛋白质。总热量为{{ user.carb*4 + user.protein*4 | number: 0}} 大卡。而之前小X已经计算出，主人每天要消耗<b>{{user.engExp | number: 0}}</b>大卡。
+						</p>
+						<p ng-if="checkGoal(1)">
+							<b>减重可以使用 5-30% 的卡路里亏空</b>
+						</p>
+						<p ng-if="checkGoal(2)">
+							<b>保持体重则同消耗卡路里相同</b>
+						</p>
+						<p ng-if="checkGoal(3)">
+							<b>增重可以选择 5-15% 的卡路里剩余</b>
+						</p>
+						<p>
+							小X推荐减重和增重的卡路里差值都不要太过，否则都可能会影响到身体健康哦。[4]
+						</p>
+					</div>
+					<div class="panel-body">
+
+						<md-input-container class="md-block" ng-if="checkGoal(1)">
+
+						    <input type="number" name="diff_minus" placeholder="请主人输入一个自己希望减重的卡路里差值 %" ng-model="user.diff_minus" required ng-change="checkForm(7)"> 
+	    					<div ng-messages="calculatorForm7.diff_minus.$error">
+						    	<div ng-message="required">This is required.</div>
+						    </div>
+						    
+						</md-input-container>
+
+						<md-input-container class="md-block" ng-if="checkGoal(3)">
+
+						    <input type="number" name="diff_plus" placeholder="请主人输入一个自己希望增重的卡路里差值 %" ng-model="user.diff_plus" required ng-change="checkForm(7)"> 
+	    					<div ng-messages="calculatorForm6.diff_plus.$error">
+						    	<div ng-message="required">This is required.</div>
+						    </div>
+						    
+						</md-input-container>
+
+
+						<table class="table" ng-show="showEF || checkGoal(2)">
+							<tr>
+								<th>总热量 :</th>	
+								<td>{{user.energy | number: 0}} 大卡</td>
+							</tr>
+							<tr>
+								<th>脂肪摄入:</th>	
+								<td>{{user.fat | number: 0}} g</td>
+							</tr>
+						</table>
+
+					</div>
+					<div class="panel-footer">
+						<div class="row">
+							<div class="col-xs-6 btn-prev">
+								<button type="button" ng-click="prevForm(7)" class="btn btn-prev">上一步</button>
+							</div>
+							<div class="col-xs-6 btn-next">
+								<button type="submit" ng-click="nextForm(7)" class="btn btn-next">完成</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>	
+		</form>
+
+		<section class="result" ng-if="showForm(8)">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3>总结：</h3>
+					<p>
+						好啦，小X的计算任务已经完成啦，主人如果满意的话，别忘了多来看看小X和师姐。
+					</p>
+					<p>
+						现在小X帮主人做一个总结：
+					</p>
+				</div>
+				<div class="panel-body">
+			        <table class="table">
+			        	<tr>
+			        		<td>每日卡路里摄入量</td>
+			        		<th>{{user.energy  | number: 0}} 大卡</th>
+			        		<th></th>
+			        	</tr>
+			        	<tr>
+			        		<td>碳水摄入量</td>
+			        		<th>{{user.carb | number: 0}} g</th>
+			        		<th>{{user.carb * 4 | number: 0}} 大卡</th>
+			        	</tr>
+			        	<tr>
+			        		<td>蛋白质摄入量</td>
+			        		<th>{{user.protein | number: 0}} g</th>
+			        		<th>{{user.protein * 4 | number: 0}} 大卡</th>
+			        	</tr>
+			        	<tr>
+			        		<td>脂肪摄入量</td>
+			        		<th>{{user.fat | number: 0}} g</th>
+			        		<th>{{user.fat * 9 | number: 0}} 大卡</th>
+			        	</tr>
+			        </table>
+				</div>
+				<div class="panel-footer">
+					<p>
+						主人不需要完全按照这个推荐，上下波动5%-10% 都很正常，只要吃的都是健康、均衡、多样化的食物，那就是好的饮食！
+					</p>
+					<p>
+						祝主人生酮快乐！
+					</p>
+					<p>
+						小X退下啦~
+					</p>
+				</div>
+		</section>
+
+		<section class="referring">
+			<hr>
+			<h4>参考：</h4>
+			<ul>
+				<li>http://www.freedieting.com/calorie_needs.html</li>
+				<li>Hoffman, J. R., Ratamess, N. A., Kang, J., Falvo, M. J., & Faigenbaum, A. D. (2006). Effect of Protein Intake on Strength, Body Composition and Endocrine Changes in Strength/Power Athletes. Journal of the International Society of Sports Nutrition, 3(2), 12. doi:10.1186/1550-2783-3-2-12</li>
+				<li>http://www.ruled.me/macronutrients-and-ketogenic-diet/</li>
+				<li>Van Gad, L.F., G.A. Vansant, and I.H. DeLeeuw. Factors determining energy expenditure during very-low-calorie diets. Am. J. Clin. Nutr. 5632243-2298, 1992.</li>
+			</ul>
+		</section>
+		
+	</div>
+</div>
