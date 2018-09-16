@@ -62,7 +62,6 @@ router.put('/:articlecategory/edit', adminAuth, function(req, res) {
 	.populate('articles')
 	.exec(function(err, articlecategory, next) {
 		if (err) {return next(err);}
-		console.log(articlecategory);
 		res.json(articlecategory)
 	});
 });
@@ -70,7 +69,6 @@ router.put('/:articlecategory/edit', adminAuth, function(req, res) {
 /* Delete a articlecategory */
 router.delete('/:articlecategory/delete', adminAuth, function(req, res) {
 	ArticleCategory.findOne({_id: res.articlecategory._id}, function(err, articlecategory) {
-		console.log(articlecategory);
 		if(err) {return next(err)};
 		articlecategory.remove();
 		res.json({success: true, msg: 'Article Category deleted.'});

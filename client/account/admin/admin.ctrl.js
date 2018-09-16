@@ -157,7 +157,7 @@ angular.module('MyApp')
 		}
 		//add new article
 		$scope.addNewArticle = function(articleCategory) {
-			if(!$scope.newArticle.order) {	
+			if($scope.newArticle.order == null) {	
 				if (articleCategory.articles) {
 					$scope.newArticle.order = articleCategory.articles.length
 				} else {
@@ -198,7 +198,7 @@ angular.module('MyApp')
 			if ($scope.editingArticle.subtitle) {newArticle.subtitle = $scope.editingArticle.subtitle}
 			if ($scope.editingArticle.articleUrl) {newArticle.articleUrl = $scope.editingArticle.articleUrl}
 			if ($scope.editingArticle.thumbnailUrl) {newArticle.thumbnailUrl = $scope.editingArticle.thumbnailUrl}
-			if ($scope.editingArticle.neworder) {newArticle.order = $scope.editingArticle.neworder}
+			if ($scope.editingArticle.neworder != null) {newArticle.order = $scope.editingArticle.neworder}
 
 			if(newArticle) {
 				Article.update(article, newArticle).then(function(err) {
@@ -334,7 +334,7 @@ angular.module('MyApp')
 		}
 		//add new recipe
 		$scope.addNewRecipe = function(recipeCategory) {
-			if(!$scope.newRecipe.order) {	
+			if($scope.newRecipe.order == null) {	
 				if (recipeCategory.recipes) {
 					$scope.newRecipe.order = recipeCategory.recipes.length
 				} else {
@@ -375,7 +375,7 @@ angular.module('MyApp')
 			if ($scope.editingRecipe.subtitle) {newRecipe.subtitle = $scope.editingRecipe.subtitle}
 			if ($scope.editingRecipe.recipeUrl) {newRecipe.recipeUrl = $scope.editingRecipe.recipeUrl}
 			if ($scope.editingRecipe.thumbnailUrl) {newRecipe.thumbnailUrl = $scope.editingRecipe.thumbnailUrl}
-			if ($scope.editingRecipe.neworder) {newRecipe.order = $scope.editingRecipe.neworder}
+			if ($scope.editingRecipe.neworder != null) {newRecipe.order = $scope.editingRecipe.neworder}
 
 			if(newRecipe) {
 				Recipe.update(recipe, newRecipe).then(function(err) {

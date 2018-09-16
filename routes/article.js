@@ -73,7 +73,6 @@ router.put('/:article/edit', adminAuth, function(req, res) {
 /* Delete a article */
 router.delete('/:article/delete', adminAuth, function(req, res) {
 	Article.findOne({_id: res.article._id}, function(err, article) {
-		console.log(article);
 		if(err) {return next(err)};
 		article.remove();
 		res.json({success: true, msg: 'Article deleted.'});
