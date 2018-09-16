@@ -8,7 +8,13 @@
 	}
 </style> -->
 <section class="main-banner">
-	<a href="{{currentBanner.imgHref}}" target="_blank"><img class="banner" src="{{currentBanner.imgUrl}}" alt="mainbanner"></a>	
+	<a href="{{currentBanner.imgHref}}" target="_blank"><img class="banner" src="{{currentBanner.imgUrl}}" alt="mainbanner"></a>
+
+	<div class="list-banner-dots">
+		<button class="single-banner-dot" ng-repeat="banner in webBanners"  ng-click="changeBanner($index)">
+			<div ng-class="{'active' : currentIndex == $index}"></div>
+		</button>
+	</div>	
 </section>
 <section class="sub-banner">
 	<div class="sub-banner-image" ng-repeat="banner in webSubBanners">

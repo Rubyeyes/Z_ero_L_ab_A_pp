@@ -124,6 +124,30 @@
 	width: 100%
 }
 
+.list-banner-dots {
+	width: 100%;
+    position: absolute;
+    text-align: center;
+    top: 470px;
+}
+
+.single-banner-dot {
+	display: inline-block;
+    width: 30px;
+    height: 5px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.5);
+    margin: 0 3px;
+    padding: 0px;
+}
+
+
+.single-banner-dot .active {
+	background: white;    
+	width: 28px;
+    height: 3px;
+}
+
 @media screen and (max-width: 991px) {
 	.socialmedia .col-sm-4 {
 		padding: 0px 30px;

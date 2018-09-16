@@ -5,17 +5,17 @@
 	width: 100%;
     background: #fafafa;
 }
-button, html input[type=button], input[type=reset], input[type=submit] {
+.admin-dashboard-container button, html input[type=button], input[type=reset], input[type=submit] {
 	border-radius: 5px;
     background: #98cad1;
     background-image: linear-gradient(#98cad1, #68beca);
     color: white;
     border: transparent;
 }
-button img {
+.admin-dashboard-container button img {
 	height: 16px;
 }
-input {
+.admin-dashboard-container input {
 	border-color: #ddd;
 	border-width: 1px;
 	border-radius: 3px;
@@ -26,7 +26,7 @@ input {
     width: 100%;
 }
 .button-delete {
-	background: #f44336;
+	background: #f44336 !important;
 }
 .button-cancel {
 	background: #bdbdbd !important;
@@ -158,6 +158,8 @@ input {
 .list-webSubBanner,
 .list-miniProgramBanner {
 	padding-left: 20px;
+	max-height: 300px;
+    overflow: scroll;
 }
 .list-article li,
 .list-recipe li ,
@@ -243,5 +245,9 @@ input {
 @media only screen and (max-width: 475px) { 
 	.title {
 		font-size: 30px;
+	}
+	.admin-dashboard-container {
+		padding-left: 0px;
+		padding-right: 0px;
 	}
 }
