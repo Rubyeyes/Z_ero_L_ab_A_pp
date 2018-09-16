@@ -399,9 +399,6 @@
 								<div class="label-article">
 									{{article.order}}. 
 									{{article.title}}
-									{{article.subtitle}}
-									{{article.articleUrl}}
-									{{article.thumbnailUrl}}
 								</div>
 								<div class="button-group">
 									<button ng-hide="editingArticleId == article._id && currentArticleCategoryId == articleCategory._id" ng-click="showArticleEditForm(article, articleCategory)" ><span><img src="../../assets/image/icon/edit.png" alt=""></span></button>	
@@ -529,9 +526,6 @@
 								<div class="label-recipe">
 									{{recipe.order}}. 
 									{{recipe.title}}
-									{{recipe.subtitle}}
-									{{recipe.recipeUrl}}
-									{{recipe.thumbnailUrl}}
 								</div>
 								<div class="button-group">
 									<button ng-hide="editingRecipeId == recipe._id && currentRecipeCategoryId == recipeCategory._id" ng-click="showRecipeEditForm(recipe, recipeCategory)" ><span><img src="../../assets/image/icon/edit.png" alt=""></span></button>	

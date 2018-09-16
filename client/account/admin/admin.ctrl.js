@@ -49,7 +49,6 @@ angular.module('MyApp')
 
 		// webSubBanner related variable
 		$scope.webSubBanners = WebSubBanner.websubbanners;
-		console.log($scope.webSubBanners)
 		$scope.webSubBannerFormOn = false;
 		$scope.addingWebSubBannerId = -1;
 		$scope.editingWebSubBannerId = -1;
@@ -166,7 +165,6 @@ angular.module('MyApp')
 				}
 			}
 			$scope.newArticle.category = [articleCategory._id]
-			console.log($scope.newArticle)
 			if($scope.newArticle.title && $scope.newArticle.articleUrl) {
 				Article.create($scope.newArticle).then(function(data) {
 					var arrayAritcleCategoryIndex = $scope.articleCategories.findIndex(function(element) {
@@ -211,7 +209,6 @@ angular.module('MyApp')
 						var arrayAritcleCategoryIndex = $scope.articleCategories.findIndex(function(element) {
 						  return element._id === articleCategory._id
 						});
-						console.log(arrayAritcleCategoryIndex)
 						var arrayAritcleIndex = $scope.articleCategories[arrayAritcleCategoryIndex].articles.findIndex(function(element) {
 						  return element._id === article._id
 						});
@@ -345,7 +342,6 @@ angular.module('MyApp')
 				}
 			}
 			$scope.newRecipe.category = [recipeCategory._id]
-			console.log($scope.newRecipe)
 			if($scope.newRecipe.title && $scope.newRecipe.recipeUrl) {
 				Recipe.create($scope.newRecipe).then(function(data) {
 					var arrayAritcleCategoryIndex = $scope.recipeCategories.findIndex(function(element) {
@@ -390,7 +386,6 @@ angular.module('MyApp')
 						var arrayAritcleCategoryIndex = $scope.recipeCategories.findIndex(function(element) {
 						  return element._id === recipeCategory._id
 						});
-						console.log(arrayAritcleCategoryIndex)
 						var arrayAritcleIndex = $scope.recipeCategories[arrayAritcleCategoryIndex].recipes.findIndex(function(element) {
 						  return element._id === recipe._id
 						});

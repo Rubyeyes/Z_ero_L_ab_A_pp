@@ -143,6 +143,8 @@
 	padding: 20px;
     background: white;
     border-radius: 5px;
+	max-height: 300px;
+    overflow: scroll;
 }
 .list-article-category li,
 .list-recipe-category li ,
@@ -158,8 +160,6 @@
 .list-webSubBanner,
 .list-miniProgramBanner {
 	padding-left: 20px;
-	max-height: 300px;
-    overflow: scroll;
 }
 .list-article li,
 .list-recipe li ,
