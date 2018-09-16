@@ -13,10 +13,10 @@
 	        >
 	      	<md-content layout-padding ng-controller="LeftCtrl">
 	      		<ul id="learn-side-nav">
-		        	<li class="learn-side-nav-title" ng-repeat="category in articleCategories" ng-init="outerIndex = $index">
+		        	<li class="learn-side-nav-title" ng-repeat="category in articleCategories | orderBy : 'order'" ng-init="outerIndex = $index">
 		        		{{category.title}}
 		        		<ul>
-		        			<li class="learn-side-nav-subtitle" ng-repeat="article in category.articles" ng-init="innerIndex = $index" ng-click="toggleLeft()"><a href="#" data="{{$index}}" ng-click="articleClick(outerIndex, innerIndex)">{{innerIndex+1}}. {{article.title}}</a></li>
+		        			<li class="learn-side-nav-subtitle" ng-repeat="article in category.articles | orderBy: 'order'" ng-init="innerIndex = $index" ng-click="toggleLeft()"><a href="#" data="{{$index}}" ng-click="articleClick(outerIndex, innerIndex)">{{innerIndex+1}}. {{article.title}}</a></li>
 		        		</ul>
 		        	</li>
 		        </ul>
