@@ -7,7 +7,6 @@ angular.module('MyApp')
 		$scope.currentIndex = 0
 
 		$scope.currentBanner = $scope.webBanners[$scope.currentIndex];
-		console.log($scope.currentIndex);
 		$interval(showNext, 6000);
 		function showNext(){
 			if ($scope.currentIndex == $scope.webBanners.length-1) {
@@ -15,7 +14,6 @@ angular.module('MyApp')
 			}
 			$scope.currentIndex += 1;
 			$scope.currentBanner = $scope.webBanners[$scope.currentIndex];
-			console.log($scope.currentIndex);
 		}
 		$scope.changeBanner = function(index) {
 			$scope.currentBanner = $scope.webBanners[index]
