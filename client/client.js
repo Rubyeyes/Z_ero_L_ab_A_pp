@@ -17,7 +17,7 @@ angular.module('MyApp', [
 					templateUrl: '/home/home.html',
 					controller: 'homeCtrl',
 					data: {
-						title: 'X生酮实验室_低碳水高脂肪适量蛋白质_生酮饮食_科普'
+						title: 'ZERO实验室_低碳水高脂肪适量蛋白质_生酮饮食_科普'
 					},
 				    resolve: {
 						webbanners: ['WebBanner', '$state', function(WebBanner, $state) {
@@ -33,7 +33,7 @@ angular.module('MyApp', [
 					templateUrl: '/account/auth/login.html',
 					controller: 'AuthCtrl',
 					data: {
-						title: '登陆_X生酮实验室'
+						title: '登陆_ZERO实验室'
 					},
 					onEnter: ['$state', 'Auth', function($state, Auth) {
 						if(Auth.isLoggedIn()) {
@@ -46,7 +46,7 @@ angular.module('MyApp', [
 					templateUrl: '/account/auth/register.html',
 					controller: 'AuthCtrl',
 					data: {
-						title: '注册_X生酮实验室'
+						title: '注册_ZERO实验室'
 					},
 					onEnter: ['$state', 'Auth', function($state, Auth) {
 						if(Auth.isLoggedIn()) {
@@ -59,7 +59,7 @@ angular.module('MyApp', [
 					templateUrl: '/views/calculation/calculation.html',
 					controller: 'calculationCtrl',
 					data: {
-						title: 'X生酮计算器_精确计算生酮饮食每日所需三大营养物质_X生酮实验室'
+						title: 'X生酮计算器_精确计算生酮饮食每日所需三大营养物质_ZERO实验室'
 					}	
 				})
 				.state('learn', {
@@ -67,7 +67,7 @@ angular.module('MyApp', [
 					templateUrl: '/views/learn/learn.html',
 					controller: 'learnCtrl',
 					data: {
-						title: '生酮饮食知识库_FAQ_X生酮实验室'
+						title: '生酮饮食知识库_FAQ_ZERO实验室'
 					},
 				    resolve: {
 						articlecategories: ['ArticleCategory', function(ArticleCategory) {
@@ -93,7 +93,7 @@ angular.module('MyApp', [
 					templateUrl: '/views/gigl/gigl.html',
 					controller: 'giglCtrl',
 					data: {
-						title: '升糖指数_升糖负荷gigl_X生酮实验室'
+						title: '升糖指数_升糖负荷gigl_ZERO实验室'
 					}	
 				})
 				.state('nutritions', {

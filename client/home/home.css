@@ -1,8 +1,13 @@
+.container-media {
+	display: flex;
+	justify-content: center;
+}
+
 .banner{
 	width: 100%;
 }
 .banner.ng-enter, .banner.ng-leave {
-  	-moz-transition: 1s linear all;; /* Firefox 4 */
+  -moz-transition: 1s linear all;; /* Firefox 4 */
 	-webkit-transition: 1s linear all;; /* Safari 和 Chrome */
 	-o-transition: 1s linear all;; /* Opera */
 }
@@ -111,8 +116,7 @@
 
 .sub-banner {
 	display: flex;
-    height: 200px;
-    width: 100%;
+	width: 100%;
 }
 
 .sub-banner-image {
@@ -146,6 +150,15 @@
 	background: white;    
 	width: 28px;
     height: 3px;
+}
+
+.main-banner img {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: 100%;
+	object-fit: cover;
 }
 
 @media screen and (max-width: 991px) {

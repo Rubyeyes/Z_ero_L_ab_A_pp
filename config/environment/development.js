@@ -4,7 +4,7 @@
  */
 
 module.exports = {
-	seedDB: true,
+	seedDB: false,
 	mode: 'dev',
 	wechatConfig: {
 	  token: 'xketolab0429',
