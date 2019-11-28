@@ -46,21 +46,21 @@ ArticleCategory.remove({}, function(err) {
 		console.log(err);
 	} else {
 		var articleCategory = new ArticleCategory();	
-	    articleCategory.title = "认识生酮饮食"; 
+	    articleCategory.title = "入门必读"; 
 	    articleCategory.order = 0;
 	    articleCategory.save(function(err) {
 	    	if(err) {return next(err);}
 	    })
 
 	    var articleCategory = new ArticleCategory();	
-	    articleCategory.title = "科学、原理";
+	    articleCategory.title = "人人都该知道的减脂常识";
 	    articleCategory.order = 1;
 	    articleCategory.save(function(err) {
 	    	if(err) {return next(err);}
 	    })
 
 	    var articleCategory = new ArticleCategory();	
-	    articleCategory.title = "开始生酮饮食前必读";
+	    articleCategory.title = "手把手 断糖攻略";
 	    articleCategory.order = 2; 
 	    articleCategory.save(function(err) {
 	    	if(err) {return next(err);}

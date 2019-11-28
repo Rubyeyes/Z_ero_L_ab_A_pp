@@ -4,272 +4,146 @@ angular.module('MyApp')
 	    $scope.isOpenRight = function(){
 	      return $mdSidenav('right').isOpen();
 	    };
-	    $scope.recipeCategories = RecipeCategory.recipecategories;
-	  //   $scope.recipeCategories = [    	
-			// {
-			// 	title: "认识生酮饮食",
-			// 	recipes: [
-			// 		{
-			// 			title: "警告",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:"https://mp.weixin.qq.com/s/nEfTMP-cGRSqk11dVxMmcg"
-			// 		},
-			// 		{
-			// 			title: "生酮饮食的历史",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:"https://mp.weixin.qq.com/s/-um1MlvvmO8-le4KEzMaCg"
-			// 		},
-			// 		{
-			// 			title: "生酮饮食有哪些治疗效果",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:"https://mp.weixin.qq.com/s/W5G9DWKWq6A306QnArpZcw"
-			// 		},
-			// 	]
-			// },
-			// {
-			// 	title: "科学、原理",
-			// 	recipes: [
-			// 		{
-			// 			title: "低脂饮食减肥为什么会让你发胖",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:"https://mp.weixin.qq.com/s/66VI06QsO-4LeOLUt5GaDQ"
-			// 		},
-			// 		{
-			// 			title: "酮体在人体中产生的原理是什么",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 		{
-			// 			title: "生酮饮食为什么能减肥",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 	]
-			// },
-			// {
-			// 	title: "开始生酮饮食前必读",
-			// 	recipes: [
-			// 		{
-			// 			title: "关于安全-生酮饮食有哪些不良反应",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 		{
-			// 			title: "关于安全-长期生酮是否安全",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 		{
-			// 			title: "关于安全-生酮饮食绝对禁忌人群",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 		{
-			// 			title: "关于安全-哪些人进行生酮饮食需要谨慎",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 		{
-			// 			title: "开始生酮饮食前我要做什么",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 		{
-			// 			title: "我需要严格生酮吗",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 		{
-			// 			title: "我需要生酮多久",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 		{
-			// 			title: "如何优雅的退出生酮",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 	]
-			// },
-			// {
-			// 	title: "生酮饮食怎么吃",
-			// 	recipes: [
-			// 		{
-			// 			title: "什么能吃",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 		{
-			// 			title: "什么不能吃、要少吃",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 		{
-			// 			title: "为什么要少吃水果",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 		{
-			// 			title: "我应该吃多少，按什么比例吃",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 		{
-			// 			title: "吃多少碳水化合物",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 		{
-			// 			title: "常见错误：隐藏碳水化合物",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 		{
-			// 			title: "吃多少蛋白质",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 		{
-			// 			title: "吃多少油脂",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 		{
-			// 			title: "卡路里之谜：到底要不要限制脂肪摄入",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 		{
-			// 			title: "吃多少次要，测酮体是关键",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 		{
-			// 			title: "我应该从什么比例开始入门",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 		{
-			// 			title: "什么时候吃，一天吃几顿",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 		{
-			// 			title: "如何阅读营养标签",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 		{
-			// 			title: "如何查询食物营养成分",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 	]
-			// },
-			// {
-			// 	title: "生酮实践攻略",
-			// 	recipes: [
-			// 		{
-			// 			title: "介绍三种酮体",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 		{
-			// 			title: "如何测量酮体",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 		{
-			// 			title: "区别：进入生酮状态 vs 生酮适应",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 		{
-			// 			title: "为什么会有适应期",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 		{
-			// 			title: "适应期副作用的应对方法",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 		{
-			// 			title: "爆碳水",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 		{
-			// 			title: "运动过度、压力过大、睡眠不足",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 	]
-			// },
-			// {
-			// 	title: "女性生酮",
-			// 	recipes: [
-			// 		{
-			// 			title: "生酮饮食会影响月经吗",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 		{
-			// 			title: "生酮饮食和PCOS",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 	]
-			// },
-			// {
-			// 	title: "其他营养相关",
-			// 	recipes: [
-			// 		{
-			// 			title: "代糖",
-			// 			subtitle: "",
-			// 			imgUrl: "",
-			// 			recipeUrl:""
-			// 		},
-			// 	]
-			// }
-	  //   ];
+	    // $scope.recipeCategories = RecipeCategory.recipecategories;
+	    $scope.recipeCategories = [    	
+			{
+				title: "低碳水食谱",
+				recipes: [
+					{
+						title: "7日无脑食谱",
+						subtitle: "",
+						imgUrl: "",
+						recipeUrl:"https://mp.weixin.qq.com/s/sFMTDVlVTqH4E3ex-TdS-Q"
+					},
+					{
+						title: "学生党",
+						subtitle: "",
+						imgUrl: "",
+						recipeUrl:"学生党"
+					},
+					{
+						title: "上班族",
+						subtitle: "",
+						imgUrl: "",
+						recipeUrl:"https://mp.weixin.qq.com/s/8qoeVLQuHB877aMe7yOUcA"
+					},
+					{
+						title: "蔬菜最好吃哪些，如何做",
+						subtitle: "",
+						imgUrl: "",
+						recipeUrl:"https://mp.weixin.qq.com/s/RWDv-vJzH5kOOm31KgnjqQ"
+					},
+					{
+						title: "舌尖上的断糖美食地图",
+						subtitle: "",
+						imgUrl: "",
+						recipeUrl:"https://mp.weixin.qq.com/s/ckATIY7yvDCRYK4x-aAKtg"
+					},
+					{
+						title: "社交场合攻略",
+						subtitle: "",
+						imgUrl: "",
+						recipeUrl:"https://mp.weixin.qq.com/s/xxTHp4L5dKoeW7ZQuaHFqw"
+					},
+					{
+						title: "用微波炉电饭煲做断糖饮食",
+						subtitle: "",
+						imgUrl: "",
+						recipeUrl:"https://mp.weixin.qq.com/s/pZ6puAMK3rJTQdfEc8N8hg"
+					},
+					{
+						title: "防弹咖啡",
+						subtitle: "",
+						imgUrl: "",
+						recipeUrl:"https://mp.weixin.qq.com/s/5AqVCnmYC13qd0X7V5iknw"
+					},
+					{
+						title: "断糖绿奶昔",
+						subtitle: "",
+						imgUrl: "",
+						recipeUrl:"https://mp.weixin.qq.com/s/bEofCM0pilaL9mFqx36Wyw"
+					},
+					{
+						title: "脂肪炸弹",
+						subtitle: "",
+						imgUrl: "",
+						recipeUrl:"https://mp.weixin.qq.com/s/ugjqtw9UbV1AQOiRt_VbuQ"
+					},
+					{
+						title: "杏仁奶",
+						subtitle: "",
+						imgUrl: "",
+						recipeUrl:"https://mp.weixin.qq.com/s/i25o0McXnMFTCluxYxyTSw"
+					},
+					{
+						title: "断糖杯子蛋糕",
+						subtitle: "",
+						imgUrl: "",
+						recipeUrl:"https://mp.weixin.qq.com/s/ogrpINtlEOE3XgDCac89ww"
+					},
+					{
+						title: "断糖巧克力慕斯",
+						subtitle: "",
+						imgUrl: "",
+						recipeUrl:"https://mp.weixin.qq.com/s/B-jEFR8Fr94IFHiOpByUHQ"
+					},
+					{
+						title: "断糖蛋炒饭",
+						subtitle: "",
+						imgUrl: "",
+						recipeUrl:"https://mp.weixin.qq.com/s/Mqyo42fy5qK_sAQNH61jLw"
+					},
+					{
+						title: "断糖热干面",
+						subtitle: "",
+						imgUrl: "",
+						recipeUrl:"https://mp.weixin.qq.com/s/dkT9JetfPiX5mqhnDkso5A"
+					},
+					{
+						title: "断糖薯条",
+						subtitle: "",
+						imgUrl: "",
+						recipeUrl:"https://mp.weixin.qq.com/s/xRTfjlpWhCY1_MdZjGlnzQ"
+					},
+					{
+						title: "三文鱼奶酪卷",
+						subtitle: "",
+						imgUrl: "",
+						recipeUrl:"https://mp.weixin.qq.com/s/He7U5zTAnZTjibVwUe0RJQ"
+					},
+					{
+						title: "断糖月饼",
+						subtitle: "",
+						imgUrl: "",
+						recipeUrl:"https://mp.weixin.qq.com/s/7HGZO2gbYqH4dQuYr2gcCg"
+					},
+					{
+						title: "断糖粽子",
+						subtitle: "",
+						imgUrl: "",
+						recipeUrl:"https://mp.weixin.qq.com/s/0LQiop8h6_eSSK42PCsPyQ"
+					},
+					{
+						title: "最全面的主食替代品",
+						subtitle: "",
+						imgUrl: "",
+						recipeUrl:"https://mp.weixin.qq.com/s/66VI06QsO-4LeOLUt5GaDQ"
+					},
+					{
+						title: "断糖期间吃什么坚果",
+						subtitle: "",
+						imgUrl: "",
+						recipeUrl:"https://mp.weixin.qq.com/s/5FeymtyJGqn7MIg1C7sBIg"
+					},
+					{
+						title: "外卖如何吃",
+						subtitle: "",
+						imgUrl: "",
+						recipeUrl:"https://mp.weixin.qq.com/s/2CPZUe9P3ua1laqVAJQXJQ"
+					},
+				]
+			},
+	  ];
 		if ($scope.recipeCategories[0].recipes[0]) {
 			$scope.currentRecipeUrl = $scope.recipeCategories[0].recipes[0].recipeUrl;
 			inputArticle($scope.currentRecipeUrl)	
@@ -280,16 +154,23 @@ angular.module('MyApp')
 		// 点击文章
 		$scope.recipeClick = function (categoryIndex, articleIndex) {
 			$scope.currentRecipeUrl = $scope.recipeCategories[categoryIndex].recipes[articleIndex].recipeUrl;
-	    	inputArticle($scope.currentRecipeUrl);
+	    	inputArticle();
 		}
 		// 将html中的data-src换成src
-		function inputArticle(currentArtileUrl) {
-			$http.get($scope.currentRecipeUrl)
+		function inputArticle() {
+			$http({
+				method: "GET",
+				url: $scope.currentRecipeUrl,
+				referer: 'no-referer',
+				headers: {
+					'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+				}
+			})
 			.then(function (response){
 				var html = response.data;
 				html = html.replace(/data-src/g, "src");
 				var html_src = 'data:text/html;charset=utf-8,' + html;
-				$("iframe").attr("src" , html_src);
+				$("iframe").attr("srcdoc" , html);
 			});
 		}
 	    /**
