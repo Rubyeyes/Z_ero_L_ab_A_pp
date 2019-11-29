@@ -29,13 +29,13 @@ iframe {
 	padding-top: 50px;
 }
 
-.learn-title {learn
+.learn-title {
 	font-size: 30px;
-    background: #9ed9d0;
-    margin: 0px;
-    padding: 20px 20px;
-    color: white;
-    border-radius: 4px;
+	background: #9ed9d0;
+	margin: 0px;
+	padding: 20px 20px;
+	color: white;
+	border-radius: 4px;
 }
 
 .learn-side-nav-title {
@@ -148,7 +148,6 @@ iframe {
 }
 
 .left-half {
-	display: inline-block;
 	width: 50%;
 	float: left;
 }
@@ -179,5 +178,11 @@ blockquote p {
 
 	.learn-main-content table.table img{
 		width: 100%;
+	}
+}
+
+@media screen and (min-width: 590px) {
+	.md-sidenav-left {
+		z-index: 2;
 	}
 }
