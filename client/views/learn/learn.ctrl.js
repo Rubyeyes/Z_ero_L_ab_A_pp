@@ -18,6 +18,7 @@ angular.module('MyApp')
 		}
 		// 将html中的data-src换成src
 		function inputArticle() {
+			$("iframe").attr("srcdoc", "<h3>Loading...</h3>");
 			$http({
 				method: "GET",
 				url: $scope.currentArticleUrl,

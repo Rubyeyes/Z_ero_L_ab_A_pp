@@ -46,6 +46,10 @@ iframe {
 	font-weight: normal;
 }
 
+.learn-side-nav-subtitle:hover {
+	cursor: pointer;
+}
+
 #learn-side-nav ul{
 	padding: 0px;
 }
