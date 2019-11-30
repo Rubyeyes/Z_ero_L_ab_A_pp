@@ -28,9 +28,7 @@ angular.module('MyApp')
 			})
 			.then(function (response){
 				var html = response.data;
-				html = html.replace(/data-src/g, "src");
-				var html_src = 'data:text/html;charset=utf-8,' + html;
-				$("iframe").attr("srcdoc", html);
+				document.querySelector('iframe').contentWindow.document.write(html);
 			});
 		}
 	    /**

@@ -9,7 +9,6 @@ angular.module('MyApp')
 			$scope.currentRecipeUrl = $scope.recipeCategories[0].recipes[0].recipeUrl;
 			inputRecipe()	
 		}
-	    
 		
 		$scope.toggleLeft = buildDelayedToggler('left');
 		// 点击文章
@@ -21,7 +20,7 @@ angular.module('MyApp')
 		}
 		// 将html中的data-src换成src
 		function inputRecipe() {
-			$("iframe").attr("srcdoc", "<h3>Loading...</h3>");
+			$("iframe").attr("srcdoc", "<h3 style=\"text-align: center\">Loading...</h3>");
 			$http({
 				method: "GET",
 				url: $scope.currentRecipeUrl,
@@ -31,9 +30,7 @@ angular.module('MyApp')
 			})
 			.then(function (response){
 				var html = response.data;
-				html = html.replace(/data-src/g, "src");
-				var html_src = 'data:text/html;charset=utf-8,' + html;
-				$("iframe").attr("srcdoc", html);
+				document.querySelector('iframe').contentWindow.document.write(html);
 			});
 		}
 	    /**
