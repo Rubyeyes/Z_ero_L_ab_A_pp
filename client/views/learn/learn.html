@@ -16,7 +16,11 @@
 		        	<li class="learn-side-nav-title" ng-repeat="category in articleCategories | orderBy : 'order'" ng-init="outerIndex = $index">
 		        		{{category.title}}
 		        		<ul>
-		        			<li class="learn-side-nav-subtitle" ng-repeat="article in category.articles | orderBy: 'order'" ng-init="innerIndex = $index" ng-click="toggleLeft()"><a href="#" data="{{$index}}" ng-click="articleClick(outerIndex, innerIndex)">{{innerIndex+1}}. {{article.title}}</a></li>
+									<a ng-repeat="article in category.articles | orderBy: 'order'" href="#" data="{{$index}}" ng-click="articleClick(outerIndex, innerIndex)">
+		        				<li class="learn-side-nav-subtitle" ng-init="innerIndex = $index" ng-click="toggleLeft()">
+											{{innerIndex+1}}. {{article.title}}
+										</li>
+									</a>
 		        		</ul>
 		        	</li>
 		        </ul>

@@ -18,7 +18,7 @@ angular.module('MyApp')
 		}
 		// 将html中的data-src换成src
 		function inputArticle() {
-			$("iframe").attr("srcdoc", "<h3 style=\"text-align: center\">Loading...</h3>");
+			$("iframe").attr("srcdoc", "<h3 style=\"text-align: center; height: calc(100vh - 60px); line-height: calc(100vh - 60px)\">Loading...</h3>");
 			$http({
 				method: "GET",
 				url: $scope.currentArticleUrl,
