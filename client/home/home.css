@@ -230,9 +230,11 @@
 	.banner_title,
 	.banner_title-background {
 		left: 50%;
+		font-size: 3rem
 	}
 	.banner_title-background {
 		width: 100%;
+		height: 100%;
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
 	}
