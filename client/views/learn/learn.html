@@ -1,47 +1,45 @@
 <div style="background-color: #fafafa;">
 	<div class="learn-container" layout="column"  ng-cloak>
 
-	<button class="btn-to-top" ng-click="goTop()">Top</button>
+		<section layout="row" flex >
 
-	  <section layout="row" flex >
-
-	    <md-sidenav
-	        class="md-sidenav-left"
-	        md-component-id="left"
-	        md-is-locked-open="$mdMedia('gt-xs')"
-	        md-whiteframe="4"
-	        >
-	      	<md-content layout-padding ng-controller="LeftCtrl">
-	      		<ul id="learn-side-nav">
-		        	<li class="learn-side-nav-title" ng-repeat="category in articleCategories | orderBy : 'order'" ng-init="outerIndex = $index">
-		        		{{category.title}}
-		        		<ul>
+			<md-sidenav
+					class="md-sidenav-left"
+					md-component-id="left"
+					md-is-locked-open="$mdMedia('gt-xs')"
+					md-whiteframe="4"
+					>
+					<md-content layout-padding ng-controller="LeftCtrl">
+						<ul id="learn-side-nav">
+							<li class="learn-side-nav-title" ng-repeat="category in articleCategories | orderBy : 'order'" ng-init="outerIndex = $index">
+								{{category.title}}
+								<ul>
 									<a ng-repeat="article in category.articles | orderBy: 'order'" href="#" data="{{$index}}" ng-click="articleClick(outerIndex, innerIndex)">
-		        				<li class="learn-side-nav-subtitle" ng-init="innerIndex = $index" ng-click="toggleLeft()">
+										<li class="learn-side-nav-subtitle" ng-init="innerIndex = $index" ng-click="toggleLeft()">
 											{{innerIndex+1}}. {{article.title}}
 										</li>
 									</a>
-		        		</ul>
-		        	</li>
-		        </ul>
-	      	</md-content>
+								</ul>
+							</li>
+						</ul>
+					</md-content>
 
-	    </md-sidenav>
+			</md-sidenav>
 
-	    <md-content class="learn-main-content" flex layout-padding>
+			<md-content class="learn-main-content" flex layout-padding>
 
-	        <div class="nav-close-btn">
-	          <md-button ng-click="toggleLeft()" class="sidebar-btn">
-	            <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-	          </md-button>
-	        </div>
+					<div class="nav-close-btn">
+						<md-button ng-click="toggleLeft()" class="sidebar-btn">
+							<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+						</md-button>
+					</div>
 
 
-		    <div id="scroller" scroll-spy="" data-target="#learn-side-nav" data-scroll-offset="80">
-		    	<iframe src="" frameborder="0"></iframe>
+				<div id="scroller" scroll-spy="" data-target="#learn-side-nav" data-scroll-offset="80">
+					<iframe src="" frameborder="0"></iframe>
 			</div>
-	    </md-content>
-	  </section>
+			</md-content>
+		</section>
 
 	</div>
 </div>
