@@ -2,6 +2,7 @@ angular.module('MyApp')
 	.controller('homeCtrl', ['$scope', '$interval', '$filter', 'WebBanner', 'WebSubBanner', function($scope, $interval, $filter, WebBanner, WebSubBanner) {
 		// webBanner related variable
 		var localWebBanners = WebBanner.webbanners;
+		console.log(localWebBanners);
 		// $scope.webSubBanners = WebSubBanner.websubbanners;
 		$scope.webBanners = $filter('orderBy')(localWebBanners, 'order');
 		$scope.currentIndex = 0

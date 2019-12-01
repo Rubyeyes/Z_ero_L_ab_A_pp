@@ -161,6 +161,27 @@
 	object-fit: cover;
 }
 
+.banner_title,
+.banner_title-background {
+	position: absolute;
+	top: 50%;
+	left: 75%;
+	transform: translate(-50%, -50%);
+	font-size: 5rem;
+	font-weight: bold;
+	padding: 15px;
+}
+
+.banner_title-background {
+	background: rgba(0,0,0,0.38);
+	filter: blur(10px);
+	color: transparent;
+}
+
+.banner_title {
+	color: white;
+}
+
 @media screen and (max-width: 991px) {
 	.socialmedia .col-sm-4 {
 		padding: 0px 30px;
@@ -200,5 +221,9 @@
 	}
 	.socialmedia .col-sm-6 .panel-body{
 		padding:5px;
+	}
+	.banner_title,
+	.banner_title-background {
+		left: 50%;
 	}
 }
