@@ -140,8 +140,8 @@
 .single-banner-dot {
 	display: inline-block;
     width: 30px;
-    height: 5px;
-    border-radius: 2px;
+    height: 10px;
+    border-radius: 5px;
     background: rgba(255, 255, 255, 0.5);
     margin: 0 3px;
     padding: 0px;
@@ -151,7 +151,8 @@
 .single-banner-dot .active {
 	background: white;    
 	width: 28px;
-    height: 3px;
+	height: 8px;
+	border-radius: 4px;
 }
 
 .main-banner img {
