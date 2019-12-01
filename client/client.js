@@ -59,7 +59,7 @@ angular.module('MyApp', [
 					templateUrl: '/views/calculation/calculation.html',
 					controller: 'calculationCtrl',
 					data: {
-						title: 'X生酮计算器_精确计算生酮饮食每日所需三大营养物质_ZERO实验室'
+						title: 'ZERO生酮计算器_精确计算生酮饮食每日所需三大营养物质_ZERO实验室'
 					}	
 				})
 				.state('learn', {
