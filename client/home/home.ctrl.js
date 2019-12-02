@@ -7,14 +7,14 @@ angular.module('MyApp')
 		$scope.currentBanner = $scope.webBanners[$scope.currentIndex];
 		$scope.bannerTitleBackground = $scope.currentBanner.title ? "banner_title-background" : null;
 
-		function delayInterval() {
+		const delayInterval = () => {
 			if (intervalId) {
 				$interval.cancel(intervalId);
 				intervalId = $interval(showNext, 6000);
 			}	
 		}
 
-		function showNext() {
+		const showNext = () => {
 			if ($scope.currentIndex === $scope.webBanners.length-1) {
 				$scope.currentIndex = -1;
 			}
@@ -24,7 +24,7 @@ angular.module('MyApp')
 			$scope.bannerTitleBackground = $scope.currentBanner.title ? "banner_title-background" : null;
 		}
 
-		function showPrev() {
+		const showPrev = () => {
 			if ($scope.currentIndex == 0) {
 				$scope.currentIndex = $scope.webBanners.length;
 			}
@@ -34,24 +34,27 @@ angular.module('MyApp')
 			$scope.bannerTitleBackground = $scope.currentBanner.title ? "banner_title-background" : null;
 		}
 
-		$scope.changeBanner = function(index) {
+		$scope.changeBanner = (index) => {
 			$scope.currentBanner = $scope.webBanners[index]
 			$scope.currentIndex = index
 			$scope.bannerTitleBackground = $scope.currentBanner.title ? "banner_title-background" : null;		
 			delayInterval();
 		}
 
-		$('.banner').on("swipeleft", () => {
-			console.log('swipeleft');
-			showNext();
-			delayInterval()	
-		})
-
-		$('.banner').on("swiperight", () => {
-			console.log('swiperight');
+		const swipeleftHandler = () => {
 			showPrev();
-			delayInterval()	
-		})
+			delayInterval();
+			$scope.$apply();
+		};
+
+		const swiperightHandler = () => {
+			showNext();
+			delayInterval();
+			$scope.$apply();
+		};
+
+		$('.banner').on("swipeleft", swipeleftHandler);
+		$('.banner').on("swiperight", swiperightHandler);
 		
 		let intervalId = $interval(showNext, 6000);
 	}]);

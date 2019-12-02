@@ -1,3 +1,6 @@
+.ui-loader {
+	display: none;
+}
 .navbar {
 	margin-bottom: 0px;
 }

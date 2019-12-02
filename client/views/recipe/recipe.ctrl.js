@@ -27,7 +27,6 @@ angular.module('MyApp')
 			})
 			.then(function (response){
 				var html = response.data;
-				console.log(html);
 				html = html.replace(/https\:\/\/mmbiz\.qpic\.cn/g, `https://cors-anywhere.herokuapp.com/https://mmbiz.qpic.cn`);
 				html = html.replace(/http\:\/\/mmbiz\.qpic\.cn/g, `https://cors-anywhere.herokuapp.com/http://mmbiz.qpic.cn`);
 				document.querySelector('iframe').contentWindow.document.write(html);

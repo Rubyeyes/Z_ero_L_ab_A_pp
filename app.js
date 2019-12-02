@@ -1,12 +1,14 @@
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
-var logger = require('morgan');
+// var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var http = require('http');
+
+// logger.level = 'DEBUG';
 
 // import environment configuration
 var config = require('./config/environment/development');
@@ -84,7 +86,7 @@ function requireHTTPS(req, res, next) {
 app.use(requireHTTPS);
 
 // uncomment after placing your favicon in /public
-app.use(logger('dev'));
+// app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -103,12 +105,6 @@ app.use('/api/webbanners', routes_webbanners);
 app.use('/api/miniprogrambanners', routes_miniprogrambanners);
 app.use('/api/websubbanners', routes_websubbanners);
 app.use('/api/miniprogramsubbanners', routes_miniprogramsubbanners);
-// app.use('/api/info', routes_info);
-// app.use('/api/fleets', routes_fleets);
-// app.use('/api/services', routes_services);
-// app.use('/api/upload', routes_upload);
-// app.use('/api/orders', routes_orders);
-// app.use('/api/email', routes_email);
 app.use('/api/wechat', routes_wechat);
 app.use('/api/wechat_test', routes_wechat_test);
 app.use('/api/foods', routes_foods);

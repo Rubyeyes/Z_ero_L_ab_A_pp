@@ -2,10 +2,9 @@
 <html ng-app="MyApp">
 
 	<head >
-    	<base href="/">
-    	<title ng-bind="$state.current.data.title"></title>
-    	<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+		<base href="/">
+		<title ng-bind="$state.current.data.title"></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="营养学干货, 生酮饮食, 正能量">
 		<meta name="keywords" content="生酮, 营养学, 正能量, 实验室, 计算器, 知识库">
 		<!-- bootstrap sylesheet -->
@@ -18,25 +17,13 @@
 		<link rel="stylesheet" href="/account/adminlogin/adminlogin.css" >
 		<link rel="stylesheet" href="./components/navbar/navbar.css">
 		<link rel="stylesheet" href="./components/footer/footer.css">
-		<!-- <link rel="stylesheet" href="/views/nutritions/nutritions.css"> -->
 		<link rel="stylesheet" href="/views/about/about.css">
-		<!-- <link rel="stylesheet" href="/views/articles/articles.css"> -->
 		<link rel="stylesheet" href="/views/calculation/calculation.css">
 		<link rel="stylesheet" href="/views/learn/learn.css">
 		<link rel="stylesheet" href="/views/recipe/recipe.css">
 		<link rel="stylesheet" href="/views/gigl/gigl.css">
 
 		<style> .glyphicon-thumbs-up { cursor:pointer } </style>
-		<!-- baidu -->
-		<!-- <script>
-			var _hmt = _hmt || [];
-			(function() {
-			  var hm = document.createElement("script");
-			  hm.src = "https://hm.baidu.com/hm.js?6eaaf902f812381401771e3225da37f8";
-			  var s = document.getElementsByTagName("script")[0]; 
-			  s.parentNode.insertBefore(hm, s);
-			})();
-		</script> -->
 	</head>
 
 	<body>	
@@ -49,7 +36,8 @@
 		<!-- angularjs jquery bootstrap javascript cdn -->
 		<script src="/bower_components/angular/angular.min.js" ></script>
 		<script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-		<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="/bower_components/jquery/jquery.min.js"></script>
+		<script src="https://code.jquery.com/mobile/1.5.0-rc1/jquery.mobile-1.5.0-rc1.min.js"></script>
 		<script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 		<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 		<script src="/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
@@ -58,12 +46,9 @@
 		<script src="/bower_components/angular-material/angular-material.min.js"></script>
 		<script src="/bower_components/angular-messages/angular-messages.min.js"></script>
 		<script src="/bower_components/file-saver/FileSaver.min.js"></script>
-		<script src="/bower_components/angular-loading-bar/build/loading-bar.min.js" "></script>
+		<script src="/bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
 		<!-- cros domain -->
 		<script src="/components/CROS/cros.js"></script>
-
-		<!-- excel import script -->
-		<!-- <script lang="javascript" src="/bower_components/js-xlsx/dist/xlsx.core.min.js"></script> -->
 
 		<!-- angularjs script file -->
 		<script src="/client.js" ></script>
@@ -76,32 +61,16 @@
 		<script src="/components/factory/recipecategory.factory.js" ></script>
 		<script src="/components/factory/recipe.factory.js" ></script>
 		<script src="/components/factory/webbanner.factory.js" ></script>
-		<script src="/components/factory/miniprogrambanner.factory.js" ></script>
 		<script src="/components/factory/websubbanner.factory.js" ></script>
-		<script src="/components/factory/miniprogramsubbanner.factory.js" ></script>
-		<!-- <script src="/components/factory/fooddb.factory.js"></script> -->
 		<script src="/components/navbar/navbar.ctrl.js" ></script>
 		<script src="/components/navbar/navbar.directive.js" ></script>
 		<script src="/components/footer/footer.ctrl.js" ></script>
 		<script src="/components/footer/footer.directive.js" ></script>
-		<!-- <script src="/components/dragdrop/drag.directive.js"></script> -->
-		<!-- <script src="/components/dragdrop/dropexcel.directive.js"></script> -->
-		<script src="/components/window/scroll_sidebar.directive.js"></script>
-		<script src="/components/window/scroll_backtop.directive.js"></script>
-		<script src="/components/scrollspy/scrollspy.directive.js"></script>
 
 		<script src="/account/auth/auth.ctrl.js" ></script>
 		<script src="/account/auth/auth.directive.js" ></script>
 		<script src="/account/admin/admin.ctrl.js" ></script>
 		<script src="/account/adminlogin/adminlogin.ctrl.js" ></script>
-		<!-- <script src="/account/profile/profile.ctrl.js" ></script> -->
-		<!-- <script src="/account/history/history.ctrl.js" ></script> -->
-
-		<!-- <script src="/views/nutritions/nutritions.ctrl.js"></script> -->
-		<!-- <script src="/views/articles/articles.ctrl.js"></script> -->
-		<!-- <script src="/views/about/about.ctrl.js"></script> -->
-		<!-- <script src="/views/about/about_sidebar.directive.js"></script> -->
-		<!-- <script src="/views/support/support.ctrl.js"></script> -->
 		<script src="/views/calculation/calculation.ctrl.js"></script>
 		<script src="/views/learn/learn.ctrl.js"></script>
 		<script src="/views/recipe/recipe.ctrl.js"></script>
