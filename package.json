@@ -28,6 +28,7 @@
     "mongoose-text-search": "0.0.2",
     "morgan": "1.9.1",
     "multer": "^1.1.0",
+    "natural": "^0.6.3",
     "nodemailer": "4.6.8",
     "nodemon": "1.18.4",
     "passport": "0.4.0",
